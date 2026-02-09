@@ -1,3 +1,3 @@
 # PI
 
-[link do canva] (https://create.kahoot.it/share/software-apollo-11/5f8136f5-f50d-406c-8dc9-d70fe42888f1)
+[link do canva] (https://www.canva.com/design/DAG1t07YqYs/dnJwf97h0XBBfuQonksOAg/edit?utm_content=DAG1t07YqYs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
