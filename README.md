@@ -1,4 +1,4 @@
-# 📚 EstudeAqui
+# EstudeAqui
 
 ## 🧠 Introdução
 O projeto **EstudeAqui** consiste no desenvolvimento de um sistema de organização de estudos, inspirado em ferramentas modernas como o Notion, porém com foco exclusivo em estudantes.
