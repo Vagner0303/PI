@@ -1,0 +1,355 @@
+/* 1. IMPORTANDO A FONTE INTER DO GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow: hidden;
+    background-color: rgb(247, 247, 247);
+}
+
+/* ================= HEADER ================= */
+header {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+}
+
+.btn-perfil {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+}
+
+.mudar-tema {
+    position: absolute;
+    right: 80px;
+    top: 18px;
+    border: none;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+.mudar-tema:hover {
+    transform: scale(1.1);
+}
+
+.notfic{
+    position: absolute;
+    right: 120px;
+    top: 18px;
+    height: 35px;
+    width: 35px; 
+}
+
+/* ================= LAYOUT ================= */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.main {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ================= PERFIL ================= */
+.perfil {
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 7px;
+    height: 200px;
+    padding: 10px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-perfil2 {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+
+.nome {
+    margin-top: 23px;
+    margin-left: 80px;
+    font-weight: 700;
+}
+
+/* ================= ATIVIDADES (SIDEBAR) ================= */
+.atividades {
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: white;
+    border-radius: 7px;
+    height: 430px;
+    padding: 10px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões do sidebar – mantive os nomes que você usou */
+.ver-todos1 {
+    background: transparent;
+    border: none;
+    color: blue;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.ver-todos2 {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    color: blue;
+    bottom: 20px;
+    left: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ver-todos1 i,
+.ver-todos2 i {
+    font-size: 12px;
+    color: blue;
+}
+
+.prox-att {
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ================= CARDS (linha de cima e de baixo) ================= */
+.componentes,
+.componentes2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.componentes {
+    margin-top: 10vh;
+    margin-left: 20vh;
+}
+
+.componentes2 {
+    margin-top: 52vh;
+    margin-left: 20vh;
+}
+
+/* TODOS OS CARDS – mesma aparência e espaçamento */
+.componentes > .card,
+.componentes2 > div {
+    position: relative;
+    background: white;
+    border: 1px solid #ffffff;
+    right: 60px;
+    border-radius: 12px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* distribui espaço entre os itens */
+    
+    padding: 10px 10px 20px 10px; /* espaçamento interno uniforme */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== BOTÕES "VER TODAS", "VER HISTÓRICO", "VER METAS" ===== */
+/* Para os cards da linha de cima (que têm a classe .card) */
+.componentes > .card > button:last-child,
+/* Para os cards da linha de baixo (que têm a classe .ver-todos1) */
+.componentes2 > div > button.ver-todos1 {
+    background: transparent;
+    border: none;
+    color: blue;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 0; /* garantindo que não tenha margem extra */
+}
+
+/* Ícones dentro desses botões */
+.componentes > .card > button:last-child i,
+.componentes2 > div > button.ver-todos1 i {
+    font-size: 12px;
+    color: blue;
+    vertical-align: middle;
+}
+
+/* Remove estilo do primeiro botão (que é o círculo) */
+.componentes > .card > button:first-child,
+.componentes2 > div > button:first-child {
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* Elementos de dentro dos CARDS*/
+
+/*1*/
+.materias4 {
+    margin-top: 40px ;
+    margin-right: 90px ;
+}
+.i1 {
+font-size: 13px;
+margin-top: -20px ;
+margin-right: 62px ;
+}
+.ver-todas{
+   margin-right: 50px ; 
+}
+
+
+/*2*/
+.tempo{
+    margin-top: 40px ;
+    margin-right: 30px ;
+}
+.i2{
+font-size: 20px;
+margin-top: -20px ;
+margin-right: 62px ;
+}
+.ver-historico{
+     margin-right: 50px ; 
+}
+
+
+/*3*/
+.metass{
+    margin-top: 40px ;
+    margin-right: 30px ;
+}
+.i3{
+font-size: 20px;
+margin-top: -20px ;
+margin-right: 90px ;
+}
+.ver-metas{
+   margin-right: 50px ; 
+}
+
+/* ======================================================================== */
+/* ====== NOVAS REGRAS PARA O TEMA ESCURO – ADICIONADAS AO FINAL ========== */
+/* ======================================================================== */
+
+/* Quando o body receber a classe .dark-mode */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+/* Header */
+body.dark-mode header {
+    background-color: #2a2a3e;
+    border-bottom-color: #444;
+}
+
+/* Ícones do header (usuário, sino) */
+body.dark-mode header .btn-perfil i,
+body.dark-mode header .notfic i {
+    color: #cccccc !important;
+}
+
+/* Botão de tema – ícone fica totalmente preto */
+body.dark-mode .mudar-tema svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+/* Cards e componentes com fundo branco */
+body.dark-mode .componentes > .card,
+body.dark-mode .componentes2 > div,
+body.dark-mode .perfil,
+body.dark-mode .atividades {
+    background-color: #2a2a3e;
+    border-color: #3a3a4e;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Textos dentro dos cards */
+body.dark-mode .componentes > .card p,
+body.dark-mode .componentes > .card .i1,
+body.dark-mode .componentes > .card .i2,
+body.dark-mode .componentes > .card .i3,
+body.dark-mode .componentes2 > div p,
+body.dark-mode .componentes2 > div .i4,
+body.dark-mode .componentes2 > div .i5,
+body.dark-mode .componentes2 > div .i6,
+body.dark-mode .sidebar .nome {
+    color: #eee;
+}
+
+/* Botões "Ver todas", "Ver histórico", etc. */
+body.dark-mode .ver-todas,
+body.dark-mode .ver-historico,
+body.dark-mode .ver-metas,
+body.dark-mode .ver-todos1,
+body.dark-mode .ver-todos2 {
+    color: #88b;
+    background: transparent;
+}
+
+body.dark-mode .ver-todas i,
+body.dark-mode .ver-historico i,
+body.dark-mode .ver-metas i,
+body.dark-mode .ver-todos1 i,
+body.dark-mode .ver-todos2 i {
+    color: #77a !important;
+}
