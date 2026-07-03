@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeAqui</title>
+    <link rel="shortcut icon" href="assets/img/imagem_16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <button class="btn-perfil">
+        <i class="fa-solid fa-user" style="font-size: 20px; color: #555;"></i>
+    </button>
+    
+    <div class="notfic">
+        <i class="fa-regular fa-bell" style="font-size: 19px; color: #555;"></i>
+    </div>
+    
+    <!-- Botão mudar-tema com o SVG original -->
+    <button class="mudar-tema" id="toggleTheme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #555;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+</header>
+
+<div class="container">
+    <div class="main">
+        <div class="componentes">
+            <div class="card">
+                <button></button>
+                <p class="materias4">Matérias</p>
+                <div class="i1">6 cadastradas</div>
+                <button class="ver-todas"> Ver todas <i class="fa-solid fa-arrow-right" style="color: blue; margin-left: 5px; font-size: 12px;"></i> </button>
+            </div>
+
+            <div class="card">
+                <button></button>
+                <p class="tempo">Tempo de Estudo</p>
+                <div class="i2">2h 56 min</div>
+                <button class="ver-historico"> Ver histórico <i class="fa-solid fa-arrow-right" style="color: blue; margin-left: 5px; font-size: 12px;"></i> </button>
+            </div>
+
+            <div class="card">
+                <button></button>
+                <p class="metass">Meta semanal</p>
+                <div class="i3">70%</div>
+                <button class="ver-metas"> Ver metas <i class="fa-solid fa-arrow-right" style="color: blue; margin-left: 5px; font-size: 12px;"></i> </button>
+            </div>
+        </div>
+
+        <div class="componentes2">
+            <div>
+                <button></button>
+                <p class="materias1">Materias</p> 
+                <div class="i4">6 cadastradas</div> 
+                <button class="ver-todos1"> Entrar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div>
+                <button></button>
+                <p class="materias2">Materias</p>
+                <div class="i5">6 cadastradas</div>
+                <button class="ver-todos1"> Entrar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div>
+                <button></button>
+                <p class="materias3">Materias</p>
+                <div class="i6">6 cadastradas</div>
+                <button class="ver-todos1"> Entrar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="perfil">
+            <button class="btn-perfil2"></button>
+            <p class="nome">Vagner</p>
+            <div class="nivel"></div>
+            <div class="xp"></div>
+        </div>
+
+        <div class="atividades">
+            <p class="prox-att">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <path d="M12 14l-2 2 2 2 4-4"></path>
+                </svg>
+                Cronograma
+            </p>
+            <button class="ver-todos2">
+                Ver todas <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </aside>
+</div>
+
+
+<script src="assets/scripts/home.js"></script>
+
+</body>
+</html>
