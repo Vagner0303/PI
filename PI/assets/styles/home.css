@@ -16,6 +16,15 @@ body {
 }
 
 /* ================= HEADER ================= */
+
+.logo111 > img{
+    position: relative;
+    top:15px;
+    left: 20px;
+    height: 30px;
+    width: 130px;
+}
+
 header {
     position: relative;
     background-color: white;
@@ -49,11 +58,10 @@ header {
     transition: transform 0.5s ease;
 }
 
-
 .notfic{
     position: absolute;
     right: 160px;
-    top: 18px;
+    top: 19px;
     height: 1px;
     width: 1px; 
 }
@@ -89,7 +97,7 @@ header {
     border-radius: 7px;
     height: 200px;
     padding: 10px;
-     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-perfil2 {
@@ -114,12 +122,11 @@ header {
     border: 1px solid rgb(255, 255, 255);
     background-color: white;
     border-radius: 7px;
-    height: 430px;
+    height: 600px;
     padding: 10px;
-     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Botões do sidebar – mantive os nomes que você usou */
 .ver-todos1 {
     background: transparent;
     border: none;
@@ -162,6 +169,68 @@ header {
     gap: 8px;
 }
 
+/* ================= CONTAINER PRINCIPAL DA MAIN ================= */
+.main-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* ================= CAIXA BRANCA (ESQUERDA) ================= */
+.kkk {
+    position: relative;
+    background: white;
+    border: 1px solid #ffffff;
+    margin-top: -40px;
+    padding:0;
+    right: 30px;
+    width: 240px;
+    height: 900px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+/* ================= TEXTOS (CENTRO) ================= */
+.textos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.txt2 {
+    position: relative;
+    right: 40vh;
+    margin-top: -42vh;
+    padding:0;
+    border:0;
+}
+
+.txt2 .titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.txt2 .subtitulo {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6b7280; 
+}
+
+.txt1 {
+    position: relative;
+    text-align: center;
+    margin-top: 40vh; /* Ajuste esse valor pra mover SÓ o txt1 */
+    font-size: 18px;
+    right: 46vh;
+    font-weight: bold;
+    border:0;
+    padding:0;
+}
+
 /* ================= CARDS (linha de cima e de baixo) ================= */
 .componentes,
 .componentes2 {
@@ -191,20 +260,17 @@ header {
     border: 1px solid #ffffff;
     right: 60px;
     border-radius: 12px;
-    width: 300px;
-    height: 250px;
+    width: 320px;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* distribui espaço entre os itens */
-    
-    padding: 10px 10px 20px 10px; /* espaçamento interno uniforme */
+    justify-content: space-between;
+    padding: 10px 10px 20px 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== BOTÕES "VER TODAS", "VER HISTÓRICO", "VER METAS" ===== */
-/* Para os cards da linha de cima (que têm a classe .card) */
 .componentes > .card > button:last-child,
-/* Para os cards da linha de baixo (que têm a classe .ver-todos1) */
 .componentes2 > div > button.ver-todos1 {
     background: transparent;
     border: none;
@@ -216,7 +282,7 @@ header {
     display: flex;
     align-items: center;
     gap: 4px;
-    margin-top: 0; /* garantindo que não tenha margem extra */
+    margin-top: 0;
 }
 
 /* Ícones dentro desses botões */
@@ -238,50 +304,48 @@ header {
     padding: 0;
 }
 
-/* Elementos de dentro dos CARDS*/
+/* Elementos de dentro dos CARDS */
 
 /*1*/
 .materias4 {
-    margin-top: 40px ;
-    margin-right: 90px ;
+    margin-top: 40px;
+    margin-right: 90px;
 }
 .i1 {
-font-size: 13px;
-margin-top: -20px ;
-margin-right: 62px ;
+    font-size: 13px;
+    margin-top: -20px;
+    margin-right: 62px;
 }
-.ver-todas{
-   margin-right: 50px ; 
+.ver-todas {
+    margin-right: 50px;
 }
-
 
 /*2*/
-.tempo{
-    margin-top: 40px ;
-    margin-right: 30px ;
+.tempo {
+    margin-top: 40px;
+    margin-right: 30px;
 }
-.i2{
-font-size: 20px;
-margin-top: -20px ;
-margin-right: 62px ;
+.i2 {
+    font-size: 20px;
+    margin-top: -20px;
+    margin-right: 62px;
 }
-.ver-historico{
-     margin-right: 50px ; 
+.ver-historico {
+    margin-right: 50px;
 }
-
 
 /*3*/
-.metass{
-    margin-top: 40px ;
-    margin-right: 30px ;
+.metass {
+    margin-top: 40px;
+    margin-right: 30px;
 }
-.i3{
-font-size: 20px;
-margin-top: -20px ;
-margin-right: 90px ;
+.i3 {
+    font-size: 20px;
+    margin-top: -20px;
+    margin-right: 90px;
 }
-.ver-metas{
-   margin-right: 50px ; 
+.ver-metas {
+    margin-right: 50px;
 }
 
 /* ======================================================================== */
@@ -316,7 +380,8 @@ body.dark-mode .mudar-tema svg {
 body.dark-mode .componentes > .card,
 body.dark-mode .componentes2 > div,
 body.dark-mode .perfil,
-body.dark-mode .atividades {
+body.dark-mode .atividades,
+body.dark-mode .kkk {
     background-color: #2a2a3e;
     border-color: #3a3a4e;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -332,6 +397,23 @@ body.dark-mode .componentes2 > div .i4,
 body.dark-mode .componentes2 > div .i5,
 body.dark-mode .componentes2 > div .i6,
 body.dark-mode .sidebar .nome {
+    color: #eee;
+}
+
+/* Textos do centro */
+body.dark-mode .txt2 .titulo {
+    color: #eee;
+}
+
+body.dark-mode .txt2 .subtitulo {
+    color: #aaa;
+}
+
+body.dark-mode .txt1 {
+    color: #eee;
+}
+
+body.dark-mode .txt1 p {
     color: #eee;
 }
 

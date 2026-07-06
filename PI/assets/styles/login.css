@@ -7,6 +7,7 @@ body{
 
 /* Esse é o titulo da pagina de Login*/
 .titulo{
+    pointer-events: none;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -112,6 +113,7 @@ input{
     cursor: pointer;
 }
 .info-criar{
+    pointer-events: none;
     display: flex;
     margin-top: 3px;
     font-size: 14px;
@@ -119,6 +121,7 @@ input{
 
 /* Apenas um pequeno elemento de decoração*/
 .ou{
+    pointer-events: none;
     color: rgba(0, 0, 0, 0.39);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
