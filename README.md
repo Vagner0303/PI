@@ -26,7 +26,8 @@ O sistema permitirá que o usuário:
 - Cadastre matérias  
 - Adicione tarefas e provas  
 - Marque atividades como concluídas  
-- Acompanhe seu progresso de forma visual  
+- Acompanhe seu progresso de forma visual
+- Acompanha datas de provas e atividades
 
 Tudo isso com uma interface clara e fácil de usar.
 
@@ -38,7 +39,7 @@ O sistema será desenvolvido para permitir criação de conta rápida e sem comp
 ---
 
 ## 🔒 Segurança
-Os dados dos usuários serão protegidos com boas práticas de desenvolvimento, garantindo privacidade e confiabilidade no uso da plataforma.
+Os dados dos usuários serão protegidos, garantindo privacidade e confiabilidade no uso da plataforma.
 
 ---
 
@@ -56,8 +57,7 @@ Os dados dos usuários serão protegidos com boas práticas de desenvolvimento, 
 - Modo escuro  
 - Ranking de produtividade  
 - Barra de progresso por matéria  
-- Metas semanais  
-- Feedback visual  
+- Metas semanais    
 - Histórico de desempenho  
 
 ---
@@ -80,21 +80,18 @@ Diferente de ferramentas complexas, ele será:
 
 ### Back-end:
 - TypeScript  
-- Node.js  
 
 ### Banco de dados:
 - MySQL  
 
 ---
 
-## 🎨 Apresentação do projeto
-A apresentação do projeto **EstudeAqui** pode ser acessada no Canva:
+## Apresentação do projeto
+A apresentação do projeto **EstudeAqui** no Canva:
 
-👉 https://www.canva.com
+ https://www.canva.com
 
 ---
 
 ## 🎯 Conclusão
 O EstudeAqui tem como objetivo ajudar estudantes a se organizarem melhor e estudarem com mais eficiência e tranquilidade.
-
-Além de resolver um problema real, também serve como prática de desenvolvimento web completo, com grande potencial de evolução futura.
