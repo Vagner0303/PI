@@ -125,7 +125,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 20px;
     flex: 1;
     font-family: "Inter", sans-serif;
 }
@@ -166,15 +166,27 @@ button {
     color: #2F6BFF;
 }
 
-.btn-tema {
-    margin-top: auto;
-    background: none;
-    border: 1px solid rgba(16, 26, 46, 0.08);
-    border-radius: 10px;
-    padding: 10px;
+.card-frase{
+    background: linear-gradient(135deg,#eef5ff,#ffffff);
+    border: 1px solid #d8e7ff;
+    border-radius: 18px;
+    padding: 18px;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(59,130,246,.12);
+}
+
+.card-frase i{
+    width: 34px;
+    height: 34px;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.card-frase p{
+    color: #1e3a8a;
     font-size: 14px;
-    cursor: pointer;
-    color: #101A2E;
+    font-weight: 600;
+    line-height: 1.6;
 }
 
 /* ===== Conteúdo central ===== */
@@ -182,17 +194,23 @@ button {
     flex: 1;
     min-width: 0;
     padding: 28px;
+     color: rgba(0, 0, 0, 0.712);
 }
 
 .conteudo h1 {
     padding-left: 100px;
     font-size: 25px;
     margin-bottom: 1px;
+    font-family: 'Inter', sans-serif;
+    
 }
 
 .conteudo .txt {
     display: flex;
+    font-weight: 660;
     margin-top: 80px;
+    color: rgba(0, 0, 0, 0.712);
+    font-family: 'Inter', sans-serif;
 }
 
 .conteudo-sub {
@@ -202,21 +220,22 @@ button {
     margin-bottom: 20px;
 }
 
-.cartoes {
+.cards {
     display: flex;
     gap: 30px;
     justify-content: center;
+    
 }
 
-.cartoes2 {
+.cards2 {
     display: flex;
     gap: 30px;
     justify-content: center;
     margin-top: 20px;
 }
 
-.cartao {
-    background: #fff;
+.card {
+    background: linear-gradient(135deg,#eef5ff,#ffffff);
     border: 1px solid rgba(16, 26, 46, 0.08);
     border-radius: 14px;
     padding: 16px;
@@ -232,17 +251,23 @@ button {
     transition: width 0.2s ease, height 0.2s ease;
 }
 
-.cartao-topo {
+.card-topo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: -10px;
+    margin-top: 20px;
     padding-left: 12px;
     gap: 10px;
     align-self: flex-start;
 }
 
-.cartao-icone {
+.card-topo2 {
+    display: flex;
+    margin-top: 20px;
+   align-items: center;
+}
+
+.card-icone {
     background: #2563eb;
     width: 40px;
     height: 40px;
@@ -253,38 +278,79 @@ button {
     flex-shrink: 0;
 }
 
-.cartao-icone i {
+.card-icone2 {
+    background: #2563eb;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+
+
+
+.card-icone i {
     color: #fff;
     width: 20px;
     height: 20px;
 }
 
-.cartao-rotulo {
-    font-size: 12px;
-    color: rgba(16, 26, 46, 0.55);
+.card:nth-child(1) .card-icone {
+    background: #2564ebbb;
 }
 
-.cartao-valor {
-    font-size: 20px;
+.card:nth-child(2) .card-icone {
+    background: #16a34ab4;
+}
+
+.card:nth-child(3) .card-icone {
+    background: #f59f0bb6;
+}
+
+.card-rotulo {
+    font-size: 19px;
+    font-weight:600;
+    color: rgba(16, 26, 46, 0.89);
+}
+
+.card-valor {
+    font-size: 30px;
+    margin-top: 30px;
     font-weight: 600;
     text-align: center;
 }
 
-.botao-azul {   /* =========================================================================================================================== */
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 13px;
+.card-valor2 {
+    font-size: 30px;
+    margin-top: 15px;
     font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease;
-    margin-top: 60px;
+    text-align: center;
 }
 
-.botao-azul:hover {
-    background: #1d4ed8;
+.card-legenda {
+    font-size: 12px;
+    color: rgba(16, 26, 46, 0.55);
+    text-align: center;
+    padding: 0;
+    margin-top: -10px;
+}
+
+.card-barra {
+    width: 100%;
+    height: 6px;
+    border-radius: 100px;
+    background: rgba(16, 26, 46, 0.08);
+    overflow: hidden;
+}
+
+.card-progresso {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 100px;
 }
 
 /* ===== Sidebar direita ===== */
@@ -371,12 +437,22 @@ button {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    background: #F7F9FC;
-    border: 1px solid rgba(16, 26, 46, 0.08);
+   background: linear-gradient(135deg,#eef5ff,#ffffff);
+    border: 1px solid rgba(55, 96, 209, 0.342);
     border-radius: 10px;
     padding: 8px 6px;
     font-size: 12.5px;
     font-weight: 600;
+}
+
+.level{
+    color: #0386ad;
+    padding-right: 5px;
+}
+
+.flame{
+    color: #ffae00;
+    padding-right: 5px;
 }
 
 .meta-linha {
@@ -532,17 +608,41 @@ button {
 
 .cronograma-rodape {
     flex-shrink: 0;
-    margin-top: 12px;
+    margin-top: 10px;
     padding-top: 12px;
     border-top: 1px solid rgba(16, 26, 46, 0.06);
     display: flex;
+    padding-left: 20px;
     align-items: center;
+    text-align: center;
     justify-content: center;
     gap: 4px;
     font-size: 12.5px;
     font-weight: 600;
     color: #2F6BFF;
     cursor: pointer;
+}
+
+.btn-entrar{
+    margin-top: 10px;
+    padding: 8px 20px;
+    display: flex;
+    background: linear-gradient(135deg, #2F6BFF, #6A8DFF);
+    border-radius: 3px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+.btn-entrar:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(47, 107, 255, 0.25);
 }
 
 .cronograma-rodape:hover {
@@ -580,7 +680,7 @@ button {
 }
 
 @media (max-width: 1600px) {
-    .cartao {
+    .card {
         padding: 12px;
         width: 300px;
         height: 250px;
@@ -614,11 +714,11 @@ button {
 }
 
 @media (max-height: 804px) {
-    .cartoes2 {
+    .cards2 {
         margin-top: 10px;
     }
 
-    .cartao {
+    .card {
         padding: 12px;
         width: 290px;
         height: 240px;
@@ -689,11 +789,11 @@ button {
         border-radius: 14px;
     }
 
-    .cartoes {
+    .cards {
         gap: 16px;
     }
 
-    .cartao {
+    .card {
         height: 320px;
     }
 }
@@ -754,11 +854,11 @@ button {
 }
 
 @media (max-width: 768px) {
-    .cartoes {
+    .cards {
         gap: 10px;
     }
 
-    .cartao {
+    .card {
         height: 260px;
         padding: 12px;
     }
@@ -877,11 +977,11 @@ button {
         font-size: 11px;
     }
 
-    .cartoes {
+    .cards {
         gap: 6px;
     }
 
-    .cartao {
+    .card {
         height: 180px;
         padding: 10px;
     }
