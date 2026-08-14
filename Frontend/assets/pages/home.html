@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeAqui</title>
+
+    <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="pagina">
+
+        <header class="cabecalho">
+            <div class="dentro-cabecalho">
+
+                <img class="logo-imagem" src="../img/Logo.png" alt="EstudeAqui">
+
+                <div class="acoes">
+
+                    <button class="botao-icone" aria-label="Notificação" type="button">
+                        <i data-lucide="bell" style="width:18px; height:18px; stroke-width:1.75;"></i>
+                    </button>
+
+                    <span class="btn-notfic"></span>
+
+                    <button class="botao-icone" aria-label="Tema" type="button">
+                        <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
+                    </button>
+
+                    <button class="botao-icone botao-perfil" aria-label="Perfil" type="button">
+                        <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="corpo">
+
+<aside class="barra-lateral">
+
+    <nav class="dentro-lateral">
+        <a href="Dashboard" class="opcao ativo">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+        </a>
+
+        <a href="./materias.html" class="opcao">
+            <i data-lucide="book-marked"></i>
+            Matérias
+        </a>
+
+       <a href="./cronograma.html" class="opcao">
+    <i data-lucide="calendar-range"></i>
+    Cronograma
+</a>
+
+        <a href="./metas.html" class="opcao">
+            <i data-lucide="goal"></i>
+            Metas
+        </a>
+
+        <a href="./desempenho.html" class="opcao">
+            <i data-lucide="chart-spline"></i>
+            Desempenho
+        </a>
+
+        <a href="./config.html" class="opcao">
+            <i data-lucide="settings"></i>
+            Configurações
+        </a>
+    </nav>
+
+    <div class="card-frase">
+        <i data-lucide="sparkles"></i>
+        <p>Pequenos avanços todos os dias geram grandes resultados.</p>
+    </div>
+
+</aside>
+
+            <main class="conteudo">
+
+                <h1>Olá, Vagner 👋</h1>
+
+                <p class="conteudo-sub">
+                    Aqui está o resumo dos seus estudos hoje.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <div class="card-topo">
+                            <div class="card-icone">
+                                <i data-lucide="chart-spline"></i>
+                            </div>
+
+                            <span class="card-rotulo">
+                                Horas estudadas
+                            </span>
+                        </div>
+
+                        <span class="card-valor">
+                            3h 20min
+                        </span>
+
+                        <span class="card-legenda">
+                            Esta semana
+                        </span>
+
+                        <a class="cronograma-rodape" href="#">
+                            Ver desempenho
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-topo">
+                            <div class="card-icone">
+                                <i data-lucide="book-marked"></i>
+                            </div>
+
+                            <span class="card-rotulo">
+                                Tarefas pendentes
+                            </span>
+                        </div>
+
+                        <span class="card-valor">
+                            4
+                        </span>
+
+                        <span class="card-legenda">
+                            Esta semana
+                        </span>
+
+                        <a class="cronograma-rodape" href="#">
+                            Ver tarefas
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-topo">
+                            <div class="card-icone">
+                                <i data-lucide="goal"></i>
+                            </div>
+
+                            <span class="card-rotulo">
+                                Metas semanais
+                            </span>
+                        </div>
+
+                        <span class="card-valor">
+                            70%
+                        </span>
+
+                        <span class="card-legenda">
+                            Metas concluidas
+                        </span>
+
+                        <div class="card-barra">
+                            <div class="card-progresso" style="width: 70%"></div>
+                        </div>
+
+                        <a class="cronograma-rodape" href="#">
+                            Ver metas
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <h1 class="txt">Continuar estudando</h1>
+
+                <div class="cards2">
+
+                    <div class="card">
+
+                        <div class="card-topo2">
+                            <div class="card-icone2">
+                                <i data-lucide="arrow-down-1-0"></i> 
+                            </div>
+                        </div>
+
+                        <span class="card-valor2">
+                            Matematica
+                        </span>
+                        <span class="card-legenda">
+                            3 atividades
+                        </span>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-topo2">
+                            <div class="card-icone2">
+                                <i data-lucide="map"></i>  
+                            </div>
+                        </div>
+
+                        <span class="card-valor2">
+                            História
+                        </span>
+                        <span class="card-legenda">
+                            3 atividades
+                        </span>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-topo2">
+                            <div class="card-icone2">
+                                <i data-lucide="case-upper"></i>  
+                            </div>
+                        </div>
+
+                        <span class="card-valor2">
+                            Português
+                        </span>
+                        <span class="card-legenda">
+                            3 atividades
+                        </span>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+                    </div>
+                </div>
+            </main>
+
+
+            <aside class="sidebar-direita">
+
+                <section class="mini-perfil">
+
+                    <div class="perfil-topo">
+
+                        
+                            <div class="avatar">VK</div>
+                        
+
+                        <div class="perfil-info">
+                            <div class="perfil-nome">Vagner kkk</div>
+                            <div class="perfil-objetivo">Estudos</div>
+                        </div>
+                    </div>
+
+
+                    <div class="perfil-stats">
+
+                        <div class="stat-chip">
+                            <i class="flame" data-lucide="flame"></i>
+                            12 dias
+                        </div>
+
+                        <div class="stat-chip">
+                            <i class="level" data-lucide="gauge"></i>
+                            Nível 5
+                        </div>
+                    </div>
+
+
+                    <div class="meta-linha">
+
+                        <div class="rotulo">
+                            <span>Meta de hoje</span>
+                            <span>68%</span>
+                        </div>
+
+                        <div class="meta-barra">
+                            <div class="meta-progresso" style="width: 68%"></div>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section class="cronograma-lateral">
+
+                    <div class="cronograma-cabeca">
+                        <h3>Cronograma</h3>
+                        <span>A fazer</span>
+                    </div>
+
+                    <div class="cronograma-lista">
+
+                        <div class="item-cronograma item-concluido">
+
+                            <div class="trilho">
+                                <span class="ponto concluido"></span>
+                                <span class="linha"></span>
+                            </div>
+
+                            <div class="conteudo-item">
+
+                                <div class="item-hora">
+                                    15 / 08
+                                </div>
+
+                        
+                                    <span class="item-nome">
+                                        Matemática
+                                    </span>
+                                
+
+                                <div class="item-topico">
+                                    Funções quadráticas
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="item-cronograma">
+
+                            <div class="trilho">
+                                <span class="ponto agora"></span>
+                                <span class="linha"></span>
+                            </div>
+
+                            <div class="conteudo-item">
+
+                                <div class="item-hora">
+                                    04 / 08
+                                </div>
+
+                                <div class="item-nome-linha">
+
+                                    <span class="item-nome">
+                                        Redação
+                                    </span>
+
+                                </div>
+
+                                <div class="item-topico">
+                                    Dissertação argumentativa
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="item-cronograma">
+
+                            <div class="trilho">
+                                <span class="ponto pendente"></span>
+                                <span class="linha"></span>
+                            </div>
+
+                            <div class="conteudo-item">
+
+                                <div class="item-hora">
+                                    01 / 08
+                                </div>
+
+                                <div class="item-nome-linha">
+                                    <span class="item-nome">
+                                        Química
+                                    </span>
+                                </div>
+
+                                <div class="item-topico">
+                                    Estequiometria
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="item-cronograma">
+
+                            <div class="trilho">
+                                <span class="ponto pendente"></span>
+                            </div>
+
+                            <div class="conteudo-item">
+
+                                <div class="item-hora">
+                                    23 / 07
+                                </div>
+
+                                <div class="item-nome-linha">
+                                    <span class="item-nome">
+                                        Revisão geral
+                                    </span>
+                                </div>
+
+                                <div class="item-topico">
+                                    Simulado ENEM
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="cronograma-rodape" href="./cronograma.html">
+                        Ver cronograma completo
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+
+                </section>
+            </aside>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/scripts/home.js"></script>
+</body>
+</html>

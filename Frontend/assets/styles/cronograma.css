@@ -1,0 +1,616 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    background: #F7F9FC;
+    color: #101A2E;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.pagina {
+    min-height: 100vh;
+}
+
+/* ===== Cabeçalho ===== */
+.cabecalho {
+    width: 100%;
+    background: #F7F9FC;
+    border-bottom: 1px solid rgba(16, 26, 46, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.dentro-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    gap: 16px;
+}
+
+.logo-imagem {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.botao-icone {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    background: #fff;
+    color: #101A2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-icone:hover {
+    background: #2F6BFF;
+    border-color: #2F6BFF;
+    color: #fff;
+}
+
+.botao-icone:focus-visible {
+    outline: 2px solid #2F6BFF;
+    outline-offset: 2px;
+}
+
+.btn-notfic {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2F6BFF;
+    border: 2px solid #fff;
+}
+
+.botao-perfil {
+    border-radius: 100px;
+}
+
+/* ===== Corpo: barra esquerda | conteúdo ===== */
+.corpo {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* ===== Barra lateral esquerda ===== */
+.barra-lateral {
+    box-sizing: border-box;
+    background: #F7F9FC;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 65px;
+    height: calc(100vh - 65px);
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dentro-lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+    font-family: "Inter", sans-serif;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.opcao:hover {
+    background: rgba(16, 26, 46, 0.08);
+    color: #2F6BFF;
+}
+
+.opcao i,
+.opcao svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dentro-lateral a {
+    color: black
+}
+
+.dentro-lateral a.ativo {
+    opacity: 1;
+    font-weight: 600;
+    color: #2F6BFF;
+}
+
+.card-frase {
+    background: linear-gradient(135deg,#eef5ff,#ffffff);
+    border: 1px solid #d8e7ff;
+    border-radius: 18px;
+    padding: 18px;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(59,130,246,.12);
+}
+
+.card-frase i {
+    width: 34px;
+    height: 34px;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.card-frase p {
+    color: #1e3a8a;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* ===== Conteúdo central ===== */
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 28px;
+    color: rgba(0, 0, 0, 0.712);
+}
+
+/* ===== MAIN ===== */
+
+.topo-cronograma {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.conteudo h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.conteudo-sub {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.add-data {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background-color: #2F6BFF;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.add-data svg {
+    width: 16px;
+    height: 16px;
+}
+
+.add-data:hover {
+    background-color: #1e54d6;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    gap: 16px;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 14px rgba(16, 26, 46, 0.08);
+    border-color: #d8e7ff;
+}
+
+.card-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EAF0FF;
+    color: #2F6BFF;
+    flex-shrink: 0;
+}
+
+.card-icone svg {
+    width: 20px;
+    height: 20px;
+}
+
+.Info-materia {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.Info-materia .nome {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.Info-materia .descricao {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.card-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-right: 20px;
+}
+
+.card-data p {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #9ca3af;
+}
+
+.card-data .data {
+    font-size: 14px;
+    font-weight: 600;
+    color: #101A2E;
+}
+
+.card button {
+    padding: 8px 16px;
+    background-color: #22C55E;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card button:hover {
+    background-color: #16a34a;
+}
+
+
+/* ===== Cronograma: container e dropdown ===== */
+.cronograma-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    margin-top: -460px;
+    pointer-events: none;
+}
+
+.cronograma-container:has(.cronograma-dropdown.open) {
+    pointer-events: auto;
+}
+
+.cronograma-dropdown {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    /* estado fechado */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.20s ease, transform 0.20s ease, visibility 0.20s;
+}
+
+.cronograma-dropdown.open {
+    visibility: visible;
+    z-index: 999;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Título */
+.dropdown-titulo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.dropdown-titulo h2 {
+    font-size: 26px;
+    color: #172642;
+}
+
+
+/* Linha */
+.linha {
+    width: 100%;
+    height: 1px;
+    background: #dedede;
+    margin-bottom: 40px;
+}
+
+/* Campos */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+
+.campo label {
+    margin-bottom: 10px;
+    color: #0c0c0c;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.campo input,
+.campo textarea {
+    width: 100%;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 9px;
+    background: white;
+    color: #0000007a;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.campo input {
+    height: 62px;
+    padding: 0 20px;
+}
+
+.campo textarea {
+    min-height: 150px;
+    padding: 18px 20px;
+    resize: vertical;
+}
+
+/* Placeholder */
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #07070781;
+}
+
+/* Foco */
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-width: 1px;
+    border-color: #092f75;
+    box-shadow: 0 2px 15px rgba(47, 107, 255, 0.12);
+    transition: 0.3s;
+}
+/* Botão Criar */
+.criar-btn {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #2F6BFF;
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.criar-btn:hover {
+    background: #1e54d6;
+}
+
+.criar-btn:active {
+    transform: scale(0.99);
+}
+
+/* ===== Responsivo ===== */
+
+@media (max-width: 1024px) {
+    .barra-lateral {
+        width: 180px;
+    }
+
+    .dentro-lateral {
+        font-size: 18px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 779px) {
+    .opcao i,
+    .opcao svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .opcao {
+        gap: 10px;
+        padding: 5px 1px;
+        font-size: 0.8rem;
+    }
+
+    .cabecalho {
+        height: 60px;
+    }
+
+    .logo-imagem {
+        height: 25px;
+    }
+
+    .barra-lateral {
+        top: 60px;
+        height: calc(100vh - 60px);
+        width: 150px;
+        padding: 14px;
+    }
+
+    .dentro-lateral {
+        font-size: 16px;
+        gap: 16px;
+    }
+
+    .conteudo {
+        padding: 20px;
+    }
+
+    .conteudo h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-data {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .card button {
+        width: 100%;
+    }
+
+    .add-data {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .opcao i,
+    .opcao svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .opcao {
+        gap: 7px;
+        padding: 2px 1px;
+        font-size: 0.6rem;
+    }
+
+    .cabecalho {
+        height: 50px;
+    }
+
+    .dentro-cabecalho {
+        padding: 12px 16px;
+    }
+
+    .logo-imagem {
+        height: 26px;
+    }
+
+    .acoes {
+        gap: 6px;
+    }
+
+    .botao-icone {
+        width: 34px;
+        height: 34px;
+    }
+
+    .barra-lateral {
+        top: 50px;
+        height: calc(100vh - 50px);
+        width: 110px;
+        padding: 10px;
+    }
+
+    .dentro-lateral {
+        font-size: 12px;
+        gap: 14px;
+    }
+
+    .conteudo {
+        padding: 16px;
+    }
+
+    .conteudo h1 {
+        font-size: 20px;
+    }
+}
