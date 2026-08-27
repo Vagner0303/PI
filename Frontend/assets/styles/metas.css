@@ -1,0 +1,626 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    background: #F7F9FC;
+    color: #101A2E;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.pagina {
+    min-height: 100vh;
+}
+
+/* ===== Cabeçalho ===== */
+.cabecalho {
+    width: 100%;
+    background: #F7F9FC;
+    border-bottom: 1px solid rgba(16, 26, 46, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.dentro-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    gap: 16px;
+}
+
+.logo-imagem {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.botao-icone {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    background: #fff;
+    color: #101A2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-icone:hover {
+    background: #2F6BFF;
+    border-color: #2F6BFF;
+    color: #fff;
+}
+
+.botao-icone:focus-visible {
+    outline: 2px solid #2F6BFF;
+    outline-offset: 2px;
+}
+
+.btn-notfic {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    
+    border: 2px solid #fff;
+}
+
+.botao-perfil {
+    border-radius: 100px;
+}
+
+/* ===== Corpo: barra esquerda | conteúdo | sidebar direita ===== */
+.corpo {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* ===== Barra lateral esquerda ===== */
+.barra-lateral {
+    box-sizing: border-box;
+    background: #F7F9FC;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 65px;
+    height: calc(100vh - 65px);
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dentro-lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+    font-family: "Inter", sans-serif;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.opcao:hover {
+    background: rgba(16, 26, 46, 0.08);
+    color: #2F6BFF;
+}
+
+.opcao i,
+.opcao svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dentro-lateral a {
+    color: black
+}
+
+.dentro-lateral a.ativo {
+    opacity: 1;
+    font-weight: 600;
+    color: #2F6BFF;
+}
+
+.card-frase{
+    user-select: none;
+    background: linear-gradient(135deg,#eef5ff,#ffffff);
+    border: 1px solid #d8e7ff;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px;
+    box-shadow: 0 8px 20px rgba(59,130,246,.12);
+}
+
+.card-frase i{
+    width: 34px;
+    height: 34px;
+    color: #3b82f6;
+    margin-bottom: 12px;
+}
+
+.card-frase p{
+    color: #1e3a8a;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* ===== Conteúdo central ===== */
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 28px 34px 60px;
+    color: rgba(0, 0, 0, 0.712);
+}
+
+.cabecalho-pagina {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.conteudo h1 {
+    font-size: 28px;
+    margin-bottom: 4px; 
+    font-weight: 600;
+  
+}
+
+.conteudo-sub {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.conteudo-obgp{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.descricao-obgp{
+    flex: 1;
+}
+
+.titulo-obgp-linha {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.titulo-obgp {
+    font-size: 18px;
+    font-weight: 700;
+    color: #101A2E;
+}
+
+.icone-editar {
+    width: 14px;
+    height: 14px;
+    color: #9CA3AF;
+    cursor: pointer;
+}
+
+.subtitulo-obgp {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.texto-obgp {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 8px;
+    max-width: 360px;
+    line-height: 1.5;
+}
+
+.dias-faltam {
+    margin-left: auto;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(16, 26, 46, 0.08);
+}
+
+.dias-faltam i {
+    width: 20px;
+    height: 20px;
+    color: #2F6BFF;
+    flex-shrink: 0;
+}
+
+.dias-faltam-texto p {
+    margin: 0;
+}
+
+.dias-faltam-texto p:first-child {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.dias-numero {
+    font-size: 22px;
+    font-weight: 650;
+    color: #101A2E;
+}
+
+.dias-numero span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.dias-sub {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+
+/* ===== Card Objetivo Principal ===== */
+
+
+.card-metaprincipal{
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.card-metaprincipal img{
+    width:100px ;
+    height: 100px ;
+    border-radius: 50px;
+}
+
+.titulo-mp{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.titulo-mp i {
+    width: 18px;
+    height: 18px;
+    color: #2F6BFF;
+ 
+}
+
+.titulo-mp p{
+    font-size: 13px;
+    font-weight: 700;
+    color: #2F6BFF;
+    letter-spacing: 0.5px;
+    
+}
+
+/* ===== Título de seção ===== */
+.titulo-secao {
+    font-size: 16.5px;
+    font-weight: 650;
+    margin-bottom: 12px;
+}
+
+/* ===== Cards de estatística (topo) ===== */
+.cards-inicio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.card-stat {
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 1px 2px rgba(16, 26, 46, 0.04);
+    flex: 1 1 220px;
+    min-width: 220px;
+}
+
+.card-stat .icone-badge {
+    width: 40px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.card-stat .icone-badge i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    
+}
+
+.badge-azul { background: #EAF1FF; color: #2F6BFF; }
+.badge-verde { background: #E6F7EC; color: #16A34A; }
+.badge-laranja { background: #FEF3E2; color: #F59E0B; }
+.badge-roxo { background: #F3E8FF; color: #7C3AED; }
+
+.stat-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-topo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.stat-topo .valor {
+    font-size: 22px;
+    font-weight: 650;
+    color: #101A2E;
+}
+
+.stat-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #101A2E;
+}
+
+.stat-titulo-grande {
+    font-size: 16px;
+}
+
+.stat-subtitulo {
+    font-size: 12.5px;
+    color: rgba(16, 26, 46, 0.55);
+}
+
+/* ===== Metas em andamento ===== */
+.cards-final {
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.tabela-metas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-metas  tbody td {
+    padding: 16px 8px;
+    border-bottom: 1px solid rgba(16, 26, 46, 0.08);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.tabela-metas  tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.descricao-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: #101A2E;
+}
+
+.icone-meta {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.icone-meta i {
+    width: 18px;
+    height: 18px;
+}
+
+.titulo-linha-meta {
+    font-weight: 600;
+    color: #101A2E;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.descrito-sub {
+    font-size: 12.5px;
+    color: rgba(16, 26, 46, 0.55);
+}
+
+.data-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    color: rgba(16, 26, 46, 0.55);
+    white-space: nowrap;
+}
+
+.data-meta i {
+    width: 15px;
+    height: 15px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-andamento {
+    background: #EAF1FF;
+    color: #2F6BFF;
+}
+
+.status-naoiniciada {
+    background: #F3E8FF;
+    color: #7C3AED;
+}
+
+.botao-opcoes {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    color: rgba(16, 26, 46, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.botao-opcoes:hover {
+    background: rgba(16, 26, 46, 0.06);
+}
+
+.botao-opcoes i {
+    width: 16px;
+    height: 16px;
+}
+
+.botao-add-baixo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(16, 26, 46, 0.1);
+    background: #2F6BFF;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.botao-add-baixo:hover {
+    background: #6693ec;
+}
+
+.botao-add-baixo i {
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1024px) {
+    .barra-lateral {
+        width: 180px;
+    }
+}
+
+@media (max-width: 779px) {
+    .opcao i,
+    .opcao svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cabecalho {
+        height: 60px;
+    }
+
+    .logo-imagem {
+        height: 25px;
+    }
+
+    .barra-lateral {
+        top: 60px;
+        height: calc(100vh - 60px);
+        width: 150px;
+    }
+}
+
+@media (max-width: 680px) {
+    .conteudo {
+        padding: 20px 16px 40px;
+    }
+
+    .cabecalho-pagina {
+        flex-direction: column;
+    }
+
+    .conteudo-obgp {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dias-faltam {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(16, 26, 46, 0.08);
+        padding-top: 16px;
+        width: 100%;
+    }
+}
