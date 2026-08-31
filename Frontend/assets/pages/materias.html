@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EstudeAqui</title>
 
     <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/cronograma.css">
+    <link rel="stylesheet" href="../styles/materias.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
     <div class="pagina">
@@ -46,59 +47,334 @@
 
         <div class="corpo">
 
-<aside class="barra-lateral">
+            <aside class="barra-lateral">
 
-    <nav class="dentro-lateral">
-        <a href="./home.html" class="opcao">
-            <i data-lucide="layout-dashboard"></i>
-            Dashboard
-        </a>
+                <nav class="dentro-lateral">
+                    <a href="./home.html" class="opcao">
+                        <i data-lucide="layout-dashboard"></i>
+                        Dashboard
+                    </a>
 
-        <a href="Materias" class="opcao ativo">
-            <i data-lucide="book-marked"></i>
-            Matérias
-        </a>
+                    <a href="./materias.html" class="opcao ativo">
+                        <i data-lucide="book-marked"></i>
+                        Matérias
+                    </a>
 
-        <a href="./cronograma.html" class="opcao">
-            <i data-lucide="calendar-range"></i>
-            Cronograma
-        </a>
+                    <a href="./cronograma.html" class="opcao">
+                        <i data-lucide="calendar-range"></i>
+                        Cronograma
+                    </a>
 
-        <a href="./metas.html" class="opcao">
-            <i data-lucide="goal"></i>
-            Metas
-        </a>
+                    <a href="./metas.html" class="opcao">
+                        <i data-lucide="goal"></i>
+                        Metas
+                    </a>
 
-        <a href="./desempenho.html" class="opcao">
-            <i data-lucide="chart-spline"></i>
-            Desempenho
-        </a>
+                    <a href="./desempenho.html" class="opcao">
+                        <i data-lucide="chart-spline"></i>
+                        Desempenho
+                    </a>
 
-        <a href="./config.html" class="opcao">
-            <i data-lucide="settings"></i>
-            Configurações
-        </a>
-    </nav>
+                    <a href="./config.html" class="opcao">
+                        <i data-lucide="settings"></i>
+                        Configurações
+                    </a>
+                </nav>
 
-    <div class="card-frase">
-        <i data-lucide="sparkles"></i>
-        <p>Pequenos avanços todos os dias geram grandes resultados.</p>
-    </div>
+                <div class="card-frase">
+                    <i data-lucide="sparkles"></i>
+                    <p>Pequenos avanços todos os dias geram grandes resultados.</p>
+                </div>
 
-</aside>
+            </aside>
 
             <main class="conteudo">
 
+                <div class="topo-cronograma">
+                    <div class="titulo-cronograma">
+                        <h1>Matérias</h1>
+                        <p class="conteudo-sub">
+                            Crie suas matérias aqui.
+                        </p>
+                    </div>
+
+                    
+
+                    <a class="add-materia" href="">
+                        <i data-lucide="plus"></i>
+                        Nova matéria
+                    </a>
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <div class="card-icone">
+                            <i data-lucide="chart-spline"></i>
+                        </div>
+
+                        <div class="Info-materia">
+                            <span class="nome">
+                                Matemática
+                            </span>
+                            <span class="descricao">
+                                Prova de trigonometria
+                            </span>
+                        </div>
+
+                        <div class="card-prioridade">
+                            <p>Prioridade</p>
+                            <span class="prioridade">alta</span>
+                            
+                        </div>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+
+                        <div class="dropdown-ponto">
+                            <i data-lucide="ellipsis-vertical"></i>
+
+                            <div class="menu-ponto">
+                                <button class="item-menu" type="button">
+                                    <i data-lucide="pencil"></i>
+                                    Editar
+                                </button>
+                                <button class="item-menu excluir" type="button">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="card-icone">
+                            <i data-lucide="chart-spline"></i>
+                        </div>
+
+                        <div class="Info-materia">
+                            <span class="nome">
+                                Português
+                            </span>
+                            <span class="descricao">
+                                Prova de trigonometria
+                            </span>
+                        </div>
+
+                        <div class="card-prioridade">
+                            <p>Prioridade</p>
+                            <span class="prioridade">alta</span>
+                            
+                        </div>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+
+                        <div class="dropdown-ponto">
+                            <i data-lucide="ellipsis-vertical"></i>
+
+                            <div class="menu-ponto">
+                                <button class="item-menu" type="button">
+                                    <i data-lucide="pencil"></i>
+                                    Editar
+                                </button>
+                                <button class="item-menu excluir" type="button">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="card-icone">
+                            <i data-lucide="chart-spline"></i>
+                        </div>
+
+                        <div class="Info-materia">
+                            <span class="nome">
+                                História
+                            </span>
+                            <span class="descricao">
+                                Prova de trigonometria
+                            </span>
+                        </div>
+
+                        <div class="card-prioridade">
+                            <p>Prioridade</p>
+                            <span class="prioridade">alta</span>
+                            
+                        </div>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+
+                        <div class="dropdown-ponto">
+                            <i data-lucide="ellipsis-vertical"></i>
+
+                            <div class="menu-ponto">
+                                <button class="item-menu" type="button">
+                                    <i data-lucide="pencil"></i>
+                                    Editar
+                                </button>
+                                <button class="item-menu excluir" type="button">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="card-icone">
+                            <i data-lucide="chart-spline"></i>
+                        </div>
+
+                        <div class="Info-materia">
+                            <span class="nome">
+                                Ciencia
+                            </span>
+                            <span class="descricao">
+                                Prova de trigonometria
+                            </span>
+                        </div>
+
+                        <div class="card-prioridade">
+                            <p>Prioridade</p>
+                            <span class="prioridade">alta</span>
+                            
+                        </div>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+
+                        <div class="dropdown-ponto">
+                            <i data-lucide="ellipsis-vertical"></i>
+
+                            <div class="menu-ponto">
+                                <button class="item-menu" type="button">
+                                    <i data-lucide="pencil"></i>
+                                    Editar
+                                </button>
+                                <button class="item-menu excluir" type="button">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="card-icone">
+                            <i data-lucide="chart-spline"></i>
+                        </div>
+
+                        <div class="Info-materia">
+                            <span class="nome"> Geografia </span>
+                            <span class="descricao"> Prova de trigonometria </span>
+                        </div>
+
+                        <div class="card-prioridade">
+                            <p>Prioridade</p>
+                            <span class="prioridade">alta</span>
+                            
+                        </div>
+
+                        <a class="btn-entrar" href="#">
+                            Entrar
+                        </a>
+
+                        <div class="dropdown-ponto">
+                            <i data-lucide="ellipsis-vertical"></i>
+
+                            <div class="menu-ponto">
+                                <button class="item-menu" type="button">
+                                    <i data-lucide="pencil"></i>
+                                    Editar
+                                </button>
+                                <button class="item-menu excluir" type="button">
+                                    <i data-lucide="trash-2"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cronograma-container">
+
+                    <!-- Dropdown -->
+                    <div class="cronograma-dropdown">
+
+                        <!-- Cabeçalho -->
+                        <div class="dropdown-header">
+                            <div class="header-icone">
+                                <i data-lucide="calendar-range"></i>
+                            </div>
+                            <div class="header-textos">
+                                <h2>Criação de matérias</h2>
+                                <p>Crie seus trabalhos e faça suas atividades.</p>
+                            </div>
+                            <button class="fechar-btn" aria-label="Fechar">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+
+                        <div class="linha"></div>
+
+                        <!-- Matéria -->
+                        <div class="campo">
+                            <label for="materia"><i data-lucide="book-open"></i> Nome da Matéria </label>
+
+                            <div class="input-container">
+                                <input type="text" id="materia" placeholder="Ex: Matemática">
+                                
+                            </div>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="campo">
+                            <label for="conteudo"><i data-lucide="file-text"></i> Descrição</label>
+
+                            <textarea id="conteudo" maxlength="150" placeholder="Faça uma simples descrição da matéria."></textarea>
+                            <span class="contador">0/150 caracteres</span>
+                        </div>
+
+                        <div class="linha rodape-linha"></div>
+
+                        <!-- Botão -->
+                        <div class="botoes-footer">
+                            <button class="criar-btn">
+                                <i data-lucide="plus-circle"></i> Criar matéria
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </main>
 
-
-          
         </div>
     </div>
+
     <script>
         lucide.createIcons();
     </script>
-    <script src="assets/scripts/home.js"></script>
+    <script src="../scripts/materias.js"></script>
+    <script>
+        
+    </script>
 </body>
+
 </html>
