@@ -8,7 +8,6 @@
 
     <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
     <link rel="stylesheet" href="../styles/cronograma.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,9 +36,9 @@
                         <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
                     </button>
 
-                    <button class="botao-icone botao-perfil" aria-label="Perfil" type="button">
-                        <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
-                    </button>
+                    <a href="./config.html" class="botao-icone botao-perfil" aria-label="Perfil" type="button" >
+                        <i  data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
+                    </a>
                 </div>
             </div>
         </header>
@@ -60,7 +59,7 @@
                         Matérias
                     </a>
 
-                    <a href="Cronograma" class="opcao ativo">
+                    <a href="./cronograma.html" class="opcao ativo">
                         <i data-lucide="calendar-range"></i>
                         Cronograma
                     </a>
@@ -224,46 +223,64 @@
                     <!-- Dropdown -->
                     <div class="cronograma-dropdown">
 
-                        <div class="dropdown-titulo">
-                            <i data-lucide="calendar-range"></i>
-                            <h2>Criação de cronograma</h2>
+                        <!-- Cabeçalho -->
+                        <div class="dropdown-header">
+                            <div class="header-icone">
+                                <i data-lucide="calendar-range"></i>
+                            </div>
+                            <div class="header-textos">
+                                <h2>Criação de cronograma</h2>
+                                <p>Organize suas provas e trabalhos de forma simples.</p>
+                            </div>
+                            <button class="fechar-btn" aria-label="Fechar">
+                                <i data-lucide="x"></i>
+                            </button>
                         </div>
 
                         <div class="linha"></div>
 
                         <!-- Data -->
                         <div class="campo">
-                            <label for="data">Data</label>
+                            <label for="data"><i data-lucide="calendar"></i> Data</label>
 
                             <div class="input-container">
-                                <input type="date"id="data">
-                                 
+                                <input type="date" id="data" placeholder="dd/mm/aaaa">
+                                
                             </div>
                         </div>
 
                         <!-- Matéria -->
                         <div class="campo">
-                            <label for="materia">Matéria (trabalho ou prova)</label>
+                            <label for="materia"><i data-lucide="book-open"></i> Matéria (trabalho ou prova)</label>
 
-                            <input type="text" id="materia" placeholder="Ex: Matemática">
+                            <div class="input-container">
+                                <input type="text" id="materia" placeholder="Ex: Matemática">
+                                
+                            </div>
                         </div>
 
                         <!-- Conteúdo -->
                         <div class="campo">
-                            <label for="conteudo"> O que vai cair na prova ou trabalho</label>
+                            <label for="conteudo"><i data-lucide="file-text"></i> O que vai cair na prova ou trabalho</label>
 
-                            <textarea id="conteudo" placeholder="Descreva os conteúdos, capítulos, tópicos, etc."></textarea>
+                            <textarea id="conteudo" maxlength="500" placeholder="Descreva os conteúdos, capítulos, tópicos, etc."></textarea>
+                            <span class="contador">0/500 caracteres</span>
                         </div>
 
+                        <div class="linha rodape-linha"></div>
+
                         <!-- Botão -->
-                        <button class="criar-btn"> Criar </button>
+                        <div class="botoes-footer">
+                            <button class="criar-btn">
+                                <i data-lucide="plus-circle"></i> Criar cronograma
+                            </button>
+                        </div>
 
                     </div>
 
                 </div>
 
             </main>
-
         </div>
     </div>
 

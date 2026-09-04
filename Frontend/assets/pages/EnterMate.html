@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeAqui</title>
+
+    <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/materias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="pagina">
+
+        <header class="cabecalho">
+            <div class="dentro-cabecalho">
+
+                <img class="logo-imagem" src="../img/Logo.png" alt="EstudeAqui">
+
+                <div class="acoes">
+
+                    <button class="botao-icone" aria-label="Notificação" type="button">
+                        <i data-lucide="bell" style="width:18px; height:18px; stroke-width:1.75;"></i>
+                    </button>
+
+                    <span class="btn-notfic"></span>
+
+                    <button class="botao-icone" aria-label="Tema" type="button">
+                        <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
+                    </button>
+
+                    <button class="botao-icone botao-perfil" aria-label="Perfil" type="button">
+                        <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="corpo">
+
+            <aside class="barra-lateral">
+
+                <nav class="dentro-lateral">
+                    <a href="./home.html" class="opcao">
+                        <i data-lucide="layout-dashboard"></i>
+                        Dashboard
+                    </a>
+
+                    <a href="./materias.html" class="opcao ativo">
+                        <i data-lucide="book-marked"></i>
+                        Matérias
+                    </a>
+
+                    <a href="./cronograma.html" class="opcao">
+                        <i data-lucide="calendar-range"></i>
+                        Cronograma
+                    </a>
+
+                    <a href="./metas.html" class="opcao">
+                        <i data-lucide="goal"></i>
+                        Metas
+                    </a>
+
+                    <a href="./desempenho.html" class="opcao">
+                        <i data-lucide="chart-spline"></i>
+                        Desempenho
+                    </a>
+
+                    <a href="./config.html" class="opcao">
+                        <i data-lucide="settings"></i>
+                        Configurações
+                    </a>
+                </nav>
+
+                <div class="card-frase">
+                    <i data-lucide="sparkles"></i>
+                    <p>Pequenos avanços todos os dias geram grandes resultados.</p>
+                </div>
+
+            </aside>
+
+            <main class="conteudo">
+                <div class="cards">
+
+                    <div class="card-tarefas">
+                        <div class="navegacao ativo">
+                            <a href="">Materias</a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+               
+            </main>
+
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/scripts/materias.js"></script>
+</body>
+</html>
