@@ -28,6 +28,60 @@ button {
     min-height: 100vh;
 }
 
+/* ===== Modo Dark ===== */
+
+.dark .pagina {
+    background: #202020;
+    color: rgba(255, 254, 254, 0.918);
+}
+.dark .cabecalho {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+.dark .barra-lateral {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+.dark .barra-lateral a {
+    color: #ffffffc7;
+    transition: 0.3s;
+}
+
+.dark .conteudo {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .conteudo .conteudo-sub {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .conteudo .txt {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .opcao:hover{
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.dark .card-frase{
+    background: linear-gradient(135deg,#01033398,#0f0f0f);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.918);
+    transition: 0.3s;
+}
+.dark .card-frase p{
+    color: #afbef7;
+    transition: 0.3s;
+}
+
+
+
+
 /* ===== Cabeçalho ===== */
 .cabecalho {
     width: 100%;

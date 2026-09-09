@@ -13,8 +13,105 @@ body {
 body {
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
     background: #F7F9FC;
-    color: #101A2E;
+    color: black;
+    transition: 0.3s;
 }
+
+.dark .pagina{
+    background: #202020;
+    color: rgba(255, 254, 254, 0.918);
+}
+.dark .cabecalho {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+.dark .barra-lateral {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+.dark .barra-lateral a {
+    color: #ffffffc7;
+    transition: 0.3s;
+}
+
+.dark .mini-perfil {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .cronograma-lateral {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .perfil-stats .stat-chip {
+    background: linear-gradient(135deg,#01033398,#0f0f0f);
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+    border-color: #030d5a98;
+}
+
+.dark .rotulo span {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .meta-barra {
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .conteudo {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .conteudo .conteudo-sub {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .conteudo .txt {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .card {
+    background: linear-gradient(135deg,#01033398,#0f0f0f);
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .card-rotulo {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .card-legenda {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .opcao:hover{
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.dark .card-frase{
+    background: linear-gradient(135deg,#01033398,#0f0f0f);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.918);
+    transition: 0.3s;
+}
+.dark .card-frase p{
+    color: #afbef7;
+    transition: 0.3s;
+}
+
+
 
 a {
     text-decoration: none;
@@ -86,16 +183,6 @@ button {
     outline-offset: 2px;
 }
 
-.btn-notfic {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2F6BFF;
-    border: 2px solid #fff;
-}
 
 .botao-perfil {
     border-radius: 100px;
