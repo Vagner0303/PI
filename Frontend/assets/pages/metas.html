@@ -222,6 +222,10 @@
                                                     <i data-lucide="astroid"></i>  
                                                     Iniciar
                                                 </button>
+                                                <button class="item-menu principal" type="button">
+                                                    <i data-lucide="trophy"></i>
+                                                    Marcar como principal
+                                                </button>
                                             </div>
                                         </div>
                                     </td>
@@ -262,6 +266,10 @@
                                                 <button class="item-menu iniciar" type="button">
                                                     <i data-lucide="astroid"></i>  
                                                     Iniciar
+                                                </button>
+                                                <button class="item-menu principal" type="button">
+                                                    <i data-lucide="trophy"></i>
+                                                    Marcar como principal
                                                 </button>
                                             </div>
                                         </div>
@@ -304,6 +312,10 @@
                                                     <i data-lucide="astroid"></i>  
                                                     Iniciar
                                                 </button>
+                                                <button class="item-menu principal" type="button">
+                                                    <i data-lucide="trophy"></i>
+                                                    Marcar como principal
+                                                </button>
                                             </div>
                                         </div>
                                     </td>
@@ -344,6 +356,10 @@
                                                 <button class="item-menu iniciar" type="button">
                                                     <i data-lucide="astroid"></i>  
                                                     Iniciar
+                                                </button>
+                                                <button class="item-menu principal" type="button">
+                                                    <i data-lucide="trophy"></i>
+                                                    Marcar como principal
                                                 </button>
                                             </div>
                                         </div>
@@ -386,6 +402,10 @@
                                                     <i data-lucide="astroid"></i>  
                                                     Iniciar
                                                 </button>
+                                                <button class="item-menu principal" type="button">
+                                                    <i data-lucide="trophy"></i>
+                                                    Marcar como principal
+                                                </button>
                                             </div>
                                         </div>
                                     </td>
@@ -394,10 +414,96 @@
                         </table>    
                     </div>
                        </div>
-                       <button class="botao-add-baixo" type="button">
-                           <i data-lucide="plus"></i>
-                           Adicionar meta
-                       </button>
+
+                       <div class="dropdown-add-meta">
+                           <button class="botao-add-baixo" type="button" id="botao-adicionar-meta">
+                               <i data-lucide="plus"></i>
+                               Adicionar meta
+                           </button>
+
+                           <div class="painel-add-meta" id="painel-add-meta">
+                               <div class="campo-add-meta">
+                                   <label for="nova-meta-titulo">Título da meta</label>
+                                   <input type="text" id="nova-meta-titulo" placeholder="Ex: Ler 20 páginas por dia">
+                               </div>
+
+                               <div class="campo-add-meta">
+                                   <label for="nova-meta-tipo">Tipo</label>
+                                   <select id="nova-meta-tipo">
+                                       <option value="Meta diária">Meta diária</option>
+                                       <option value="Meta semanal" selected>Meta semanal</option>
+                                       <option value="Meta mensal">Meta mensal</option>
+                                   </select>
+                               </div>
+
+                               <div class="campo-add-meta">
+                                   <label for="nova-meta-prazo">Prazo (opcional)</label>
+                                   <input type="text" id="nova-meta-prazo" placeholder="Ex: Termina em 5 dias">
+                               </div>
+
+                               <div class="acoes-add-meta">
+                                   <button type="button" class="botao-secundario-add" id="cancelar-add-meta">Cancelar</button>
+                                   <button type="button" class="botao-primario-add" id="confirmar-add-meta">Adicionar</button>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- Modal Nova Meta (mesmo padrão do modal de matérias) -->
+                       <div class="cronograma-container">
+
+                           <div class="cronograma-dropdown" id="modal-nova-meta">
+
+                               <div class="dropdown-header">
+                                   <div class="header-icone">
+                                       <i data-lucide="goal"></i>
+                                   </div>
+                                   <div class="header-textos">
+                                       <h2>Criação de metas</h2>
+                                       <p>Crie suas metas e acompanhe seu progresso.</p>
+                                   </div>
+                                   <button class="fechar-btn" aria-label="Fechar">
+                                       <i data-lucide="x"></i>
+                                   </button>
+                               </div>
+
+                               <div class="linha"></div>
+
+                               <div class="campo">
+                                   <label for="meta-titulo"><i data-lucide="target"></i> Título da meta</label>
+                                   <div class="input-container">
+                                       <input type="text" id="meta-titulo" placeholder="Ex: Ler 20 páginas por dia">
+                                   </div>
+                               </div>
+
+                               <div class="campo">
+                                   <label for="meta-tipo"><i data-lucide="list-checks"></i> Tipo</label>
+                                   <div class="input-container">
+                                       <select id="meta-tipo">
+                                           <option value="Meta diária">Meta diária</option>
+                                           <option value="Meta semanal" selected>Meta semanal</option>
+                                           <option value="Meta mensal">Meta mensal</option>
+                                       </select>
+                                   </div>
+                               </div>
+
+                               <div class="campo">
+                                   <label for="meta-prazo"><i data-lucide="calendar"></i> Prazo (opcional)</label>
+                                   <div class="input-container">
+                                       <input type="text" id="meta-prazo" placeholder="Ex: Termina em 5 dias">
+                                   </div>
+                               </div>
+
+                               <div class="linha rodape-linha"></div>
+
+                               <div class="botoes-footer">
+                                   <button class="criar-btn" id="modal-confirmar-meta">
+                                       <i data-lucide="plus-circle"></i> Criar meta
+                                   </button>
+                               </div>
+
+                           </div>
+
+                       </div>
                
             </main>
 
@@ -406,7 +512,7 @@
     <script>
         lucide.createIcons();
     </script>
-    <script src="assets/scripts/metas.js"></script>
+    <script src="../scripts/metas.js"></script>
     
 </body>
 </html>
