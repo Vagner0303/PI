@@ -1,16 +1,38 @@
 const botaoAddData = document.querySelector(".add-data");
 const dropdown = document.querySelector(".cronograma-dropdown");
+const botaoFechar = document.querySelector(".fechar-btn");
 
-botaoAddData.addEventListener("click", function(event) {
+function abrirDropdown() {
+    dropdown.classList.add("open");
+}
+
+function fecharDropdown() {
+    dropdown.classList.remove("open");
+}
+
+botaoAddData.addEventListener("click", function (event) {
     event.preventDefault(); // evita que o link recarregue a página (href="")
     dropdown.classList.toggle("open");
 });
 
-document.addEventListener("click", function(event) {
+if (botaoFechar) {
+    botaoFechar.addEventListener("click", function (event) {
+        event.preventDefault();
+        fecharDropdown();
+    });
+}
+
+document.addEventListener("click", function (event) {
     const cliqueForaDoDropdown = !dropdown.contains(event.target);
     const cliqueForaDoBotao = !botaoAddData.contains(event.target);
 
     if (cliqueForaDoDropdown && cliqueForaDoBotao) {
-        dropdown.classList.remove("open");
+        fecharDropdown();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        fecharDropdown();
     }
 });
