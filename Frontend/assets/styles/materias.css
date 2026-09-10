@@ -98,6 +98,89 @@ button {
     transition: 0.3s;
 }
 
+/* Dark mode do menu de 3 pontos */
+.dark .menu-ponto {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .item-menu {
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .item-menu:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .item-menu.excluir:hover {
+    background: rgba(255, 0, 0, 0.12);
+}
+
+.dark .dropdown-ponto:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode do modal (cronograma-container / cronograma-dropdown) */
+.dark .cronograma-container {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.dark .cronograma-dropdown {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dark .header-textos h2 {
+    color: #ffffff;
+}
+
+.dark .header-textos p {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .header-icone {
+    background: rgba(47, 107, 255, 0.15);
+}
+
+.dark .linha {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .campo label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .campo label i {
+    color: #6a8dff;
+}
+
+.dark .campo input,
+.dark .campo textarea {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .campo input::placeholder,
+.dark .campo textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dark .contador {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.dark .fechar-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dark .fechar-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
 
 /* ===== Cabeçalho ===== */
 .cabecalho {
@@ -154,16 +237,6 @@ button {
 .botao-icone:focus-visible {
     outline: 2px solid #2F6BFF;
     outline-offset: 2px;
-}
-
-.btn-notfic {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 2px solid #fff;
 }
 
 .botao-perfil {
@@ -499,43 +572,60 @@ button {
     box-shadow: 0 6px 12px rgba(47, 107, 255, 0.25);
 }
 
-/* ===== Cronograma: container e dropdown ===== */
+/* ===== Cronograma: overlay + dropdown (modal) ===== */
 .cronograma-container {
-    position: relative;
+    position: fixed;
+    inset: 0;
     width: 100%;
-    max-width: 900px;
-    margin: 40px auto;
-    margin-top: -490px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 998;
+
+    background: rgba(9, 14, 26, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    /* estado fechado */
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .cronograma-container:has(.cronograma-dropdown.open) {
+    opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
 .cronograma-dropdown {
     position: relative;
     width: 100%;
-    margin-top: 20px;
-    padding: 40px;
+    max-width: 560px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 32px;
     background: #ffffff;
     border-radius: 14px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(16, 26, 46, 0.08);
+
     /* estado fechado */
-    visibility: hidden;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-16px) scale(0.98);
     pointer-events: none;
     user-select: none;
-    transition: opacity 0.20s ease, transform 0.20s ease, visibility 0.20s;
+    transition: opacity 0.20s ease, transform 0.20s ease;
 }
 
 .cronograma-dropdown.open {
-    visibility: visible;
-    z-index: 999;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
@@ -543,16 +633,16 @@ button {
 .dropdown-header {
     display: flex;
     align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 30px;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
 .header-icone {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
     background: #eaf0ff;
     border-radius: 12px;
@@ -560,23 +650,24 @@ button {
 }
 
 .header-icone i {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 .header-textos {
     flex: 1;
+    min-width: 0;
 }
 
 .header-textos h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: #172642;
     margin: 0 0 4px 0;
 }
 
 .header-textos p {
-    font-size: 14px;
+    font-size: 13px;
     color: #6b7280;
     margin: 0;
 }
@@ -585,8 +676,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border: none;
     border-radius: 8px;
     background: #f3f4f6;
@@ -610,11 +701,11 @@ button {
     width: 100%;
     height: 1px;
     background: #dedede;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 .rodape-linha {
-    margin-top: 10px;
+    margin-top: 4px;
     margin-bottom: 24px;
 }
 
@@ -622,7 +713,7 @@ button {
 .campo {
     display: flex;
     flex-direction: column;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     position: relative;
 }
 
@@ -632,7 +723,7 @@ button {
     gap: 8px;
     margin-bottom: 10px;
     color: #172642;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -662,20 +753,20 @@ button {
 }
 
 .campo input {
-    height: 56px;
-    padding: 0 45px 0 20px;
+    height: 52px;
+    padding: 0 18px;
 }
 
 .campo textarea {
-    min-height: 130px;
-    padding: 18px 20px;
+    min-height: 110px;
+    padding: 16px 18px;
     resize: vertical;
 }
 
 .contador {
     align-self: flex-end;
-    margin-top: 8px;
-    font-size: 13px;
+    margin-top: 6px;
+    font-size: 12px;
     color: #9ca3af;
 }
 
@@ -690,7 +781,7 @@ button {
 .campo textarea:focus {
     outline: none;
     border-width: 1px;
-    border-color: #092f75;
+    border-color: #2F6BFF;
     box-shadow: 0 2px 15px rgba(47, 107, 255, 0.12);
     transition: 0.3s;
 }
@@ -707,13 +798,13 @@ button {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    height: 50px;
-    padding: 0 26px;
+    height: 48px;
+    padding: 0 24px;
     border: none;
     border-radius: 8px;
     background: #2F6BFF;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
@@ -791,6 +882,10 @@ button {
     .card {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .cronograma-dropdown {
+        padding: 24px;
     }
 }
 

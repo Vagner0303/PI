@@ -81,6 +81,87 @@ button {
     transition: 0.3s;
 }
 
+.dark .card-metaprincipal {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .titulo-obgp {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .subtitulo-obgp,
+.dark .texto-obgp {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .dias-faltam {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .dias-faltam-texto p:first-child,
+.dark .dias-sub {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .dias-numero {
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .dias-numero span {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .card-stat {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .stat-topo .valor,
+.dark .stat-titulo {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .stat-subtitulo {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .cards-final {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .tabela-metas tbody td {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .descricao-meta,
+.dark .titulo-linha-meta {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .descrito-sub,
+.dark .data-meta {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .botao-opcoes {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .botao-opcoes:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 
 
 
@@ -139,17 +220,6 @@ button {
 .botao-icone:focus-visible {
     outline: 2px solid #2F6BFF;
     outline-offset: 2px;
-}
-
-.btn-notfic {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    
-    border: 2px solid #fff;
 }
 
 .botao-perfil {
@@ -678,4 +748,548 @@ button {
         padding-top: 16px;
         width: 100%;
     }
+}
+
+/* ===== Menu de opções (3 pontinhos) — Editar / Excluir / Iniciar / Principal ===== */
+.dropdown-ponto {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-ponto > *:first-child {
+    width: 22px;
+    height: 22px;
+    padding: 8px;
+    border-radius: 8px;
+    box-sizing: content-box;
+    color: rgba(16, 26, 46, 0.55);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-ponto > *:first-child:hover {
+    background: rgba(16, 26, 46, 0.06);
+    color: #101A2E;
+}
+
+.menu-ponto {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 6px);
+    min-width: 150px;
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 10px 26px rgba(16, 26, 46, 0.14);
+    padding: 6px;
+    z-index: 20;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dropdown-ponto.aberto .menu-ponto {
+    display: flex;
+}
+
+.item-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #101A2E;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.item-menu i,
+.item-menu svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+.item-menu:hover {
+    background: rgba(16, 26, 46, 0.06);
+}
+
+.item-menu.excluir {
+    color: #DC2626;
+}
+
+.item-menu.excluir:hover {
+    background: #FEF2F2;
+}
+
+.item-menu.iniciar {
+    color: #2F6BFF;
+}
+
+.item-menu.iniciar:hover {
+    background: #EAF1FF;
+}
+
+.dark .dropdown-ponto > *:first-child {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .dropdown-ponto > *:first-child:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.dark .menu-ponto {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+.dark .item-menu {
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .item-menu:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .item-menu.excluir:hover {
+    background: rgba(220, 38, 38, 0.18);
+}
+
+.dark .item-menu.iniciar:hover {
+    background: rgba(47, 107, 255, 0.18);
+}
+
+/* ===== Botão "Marcar como principal" ===== */
+.item-menu.principal {
+    color: #F59E0B;
+}
+
+.item-menu.principal:hover {
+    background: #FEF3E2;
+}
+
+.dark .item-menu.principal:hover {
+    background: rgba(245, 158, 11, 0.18);
+}
+
+/* ===== Dropdown "Adicionar meta" ===== */
+.dropdown-add-meta {
+    position: relative;
+}
+
+.painel-add-meta {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(16, 26, 46, 0.16);
+    padding: 20px;
+    z-index: 30;
+}
+
+.dropdown-add-meta.aberto .painel-add-meta {
+    display: flex;
+}
+
+.campo-add-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-add-meta label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(16, 26, 46, 0.7);
+}
+
+.campo-add-meta input,
+.campo-add-meta select {
+    border: 1px solid rgba(16, 26, 46, 0.12);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #101A2E;
+    background: #fff;
+}
+
+.campo-add-meta input:focus,
+.campo-add-meta select:focus {
+    outline: none;
+    border-color: #2F6BFF;
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.15);
+}
+
+.acoes-add-meta {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.botao-primario-add,
+.botao-secundario-add {
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.botao-primario-add {
+    background: #2F6BFF;
+    color: #fff;
+}
+
+.botao-primario-add:hover {
+    background: #1d54e0;
+}
+
+.botao-secundario-add {
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.12);
+    color: #101A2E;
+}
+
+.botao-secundario-add:hover {
+    background: rgba(16, 26, 46, 0.04);
+}
+
+.dark .painel-add-meta {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dark .campo-add-meta label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .campo-add-meta input,
+.dark .campo-add-meta select {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .botao-secundario-add {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .botao-secundario-add:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Modal "Nova meta" (igual ao modal de matérias) ===== */
+.cronograma-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 998;
+
+    background: rgba(9, 14, 26, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.cronograma-container:has(.cronograma-dropdown.open) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cronograma-dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(16, 26, 46, 0.08);
+
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.20s ease, transform 0.20s ease;
+}
+
+.cronograma-dropdown.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.header-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: #eaf0ff;
+    border-radius: 12px;
+    color: #2F6BFF;
+}
+
+.header-icone i {
+    width: 22px;
+    height: 22px;
+}
+
+.header-textos {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-textos h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #172642;
+    margin: 0 0 4px 0;
+}
+
+.header-textos p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.fechar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #374151;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+
+.fechar-btn:hover {
+    background: #e5e7eb;
+}
+
+.fechar-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+.linha {
+    width: 100%;
+    height: 1px;
+    background: #dedede;
+    margin-bottom: 32px;
+}
+
+.rodape-linha {
+    margin-top: 4px;
+    margin-bottom: 24px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.campo label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #172642;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.campo label i {
+    width: 16px;
+    height: 16px;
+    color: #2F6BFF;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    width: 100%;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 9px;
+    background: white;
+    color: #0000007a;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.campo input,
+.campo select {
+    height: 52px;
+    padding: 0 18px;
+}
+
+.campo textarea {
+    min-height: 110px;
+    padding: 16px 18px;
+    resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #07070781;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    outline: none;
+    border-width: 1px;
+    border-color: #2F6BFF;
+    box-shadow: 0 2px 15px rgba(47, 107, 255, 0.12);
+    transition: 0.3s;
+}
+
+.botoes-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.criar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 8px;
+    background: #2F6BFF;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.criar-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+.criar-btn:hover {
+    background: #1e54d6;
+}
+
+.criar-btn:active {
+    transform: scale(0.99);
+}
+
+/* Dark mode do modal */
+.dark .cronograma-container {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.dark .cronograma-dropdown {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dark .header-textos h2 {
+    color: #ffffff;
+}
+
+.dark .header-textos p {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .header-icone {
+    background: rgba(47, 107, 255, 0.15);
+}
+
+.dark .linha {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .campo label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .campo label i {
+    color: #6a8dff;
+}
+
+.dark .campo input,
+.dark .campo textarea,
+.dark .campo select {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .campo input::placeholder,
+.dark .campo textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dark .fechar-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dark .fechar-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }

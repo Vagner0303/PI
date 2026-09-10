@@ -80,6 +80,76 @@ button {
     transition: 0.3s;
 }
 
+.dark .card-stat {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .card-stat .valor {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .card-dias {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .card-titulo-linha span {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .seletor-periodo {
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .grafico-barras::before {
+    background-image: repeating-linear-gradient(to top, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 25%);
+}
+
+.dark .eixo-y,
+.dark .dias-semana span {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .cards-final {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .card-desempenho > span {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .tabela-materias thead th {
+    color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .tabela-materias tbody td {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .materia-nome {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .meta-barra {
+    background: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .progresso-linha .valor-porc {
+    color: rgba(255, 255, 255, 0.55);
+}
+
 
 
 
@@ -150,17 +220,6 @@ button {
 .botao-icone:focus-visible {
     outline: 2px solid #2F6BFF;
     outline-offset: 2px;
-}
-
-.btn-notfic {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2F6BFF;
-    border: 2px solid #fff;
 }
 
 .botao-perfil {

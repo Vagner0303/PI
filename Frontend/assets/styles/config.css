@@ -79,6 +79,125 @@ button {
     transition: 0.3s;
 }
 
+.dark .config-card {
+    background-color: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition: 0.3s;
+}
+
+.dark .config-card-topo {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .config-card-titulo h2 {
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .config-card-titulo p {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .config-card-rodape {
+    background-color: #202020;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .divisor {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .campo label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark .campo label i,
+.dark .campo label svg {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.dark .campo input,
+.dark .campo select {
+    background-color: #202020;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 254, 254, 0.918);
+    transition: 0.3s;
+}
+
+.dark .campo input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dark .campo select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.dark .alternar-senha {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.dark .alternar-senha:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.dark .texto-ajuda {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .botao-secundario {
+    background-color: #202020;
+    color: rgba(255, 254, 254, 0.918);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark .botao-secundario:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .botao-perigo {
+    background-color: #202020;
+}
+
+.dark .switch-track {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .segmentado {
+    background-color: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .segmento {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .segmento:hover {
+    color: #ffffff;
+}
+
+.dark .segmento.ativo {
+    background-color: #1A1A1A;
+    color: #6ea8fe;
+}
+
+.dark .linha-config {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .linha-config-texto strong {
+    color: rgba(255, 254, 254, 0.918);
+}
+
+.dark .linha-config-texto span {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dark .config-card.perigo {
+    border-color: rgba(220, 38, 38, 0.35);
+}
+
 
 
 
@@ -137,17 +256,6 @@ button {
 .botao-icone:focus-visible {
     outline: 2px solid #2F6BFF;
     outline-offset: 2px;
-}
-
-.btn-notfic {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2F6BFF;
-    border: 2px solid #fff;
 }
 
 .botao-perfil {
