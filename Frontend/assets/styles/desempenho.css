@@ -168,7 +168,7 @@ button {
 /* ===== Cabeçalho ===== */
 .cabecalho {
     width: 100%;
-    background: #F7F9FC;
+    background: linear-gradient(105deg, #2F6BFF, #6a6dff);
     border-bottom: 1px solid rgba(16, 26, 46, 0.08);
     position: sticky;
     top: 0;
@@ -191,16 +191,17 @@ button {
 
 .acoes {
     display: flex;
-    align-items: center;
+    left: 100px;
     gap: 8px;
-    flex-shrink: 0;
+    margin-left: auto;
+    
 }
 
 .botao-icone {
     position: relative;
     width: 38px;
     height: 38px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid rgba(16, 26, 46, 0.08);
     background: #fff;
     color: #101A2E;
@@ -208,7 +209,7 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+   
 }
 
 .botao-icone:hover {
@@ -222,8 +223,9 @@ button {
     outline-offset: 2px;
 }
 
+
 .botao-perfil {
-    border-radius: 100px;
+    border-radius: 5px;
 }
 
 /* ===== Corpo: barra esquerda | conteúdo | sidebar direita ===== */
