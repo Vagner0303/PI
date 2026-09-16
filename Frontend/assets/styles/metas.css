@@ -440,7 +440,7 @@ button {
 .card-metaprincipal{
     background: #fff;
     border: 1px solid rgba(16, 26, 46, 0.08);
-    border-radius: 14px;
+    border-radius: 9px;
     padding: 24px;
     margin-bottom: 20px;
 }
@@ -487,21 +487,32 @@ button {
     margin-bottom: 20px;
 }
 
-.card-stat {
+.card-stat1 {
     background: #fff;
     border: 1px solid rgba(16, 26, 46, 0.08);
-    border-radius: 14px;
+    border-radius: 5px;
     padding: 20px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    margin-left: 410px;
     gap: 14px;
     box-shadow: 0 1px 2px rgba(16, 26, 46, 0.04);
-    flex: 1 1 220px;
     min-width: 220px;
 }
 
-.card-stat .icone-badge {
+.card-stat {
+    background: #fff;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    box-shadow: 0 1px 2px rgba(16, 26, 46, 0.04);
+    min-width: 220px;
+}
+
+.card-stat & .card-stat1 .icone-badge {
     width: 40px;
     height: 46px;
     border-radius: 12px;
@@ -512,7 +523,7 @@ button {
     margin-right: 20px;
 }
 
-.card-stat .icone-badge i {
+.card-stat & .card-stat1 .icone-badge i {
     width: 20px;
     height: 20px;
     stroke-width: 2;
@@ -561,7 +572,7 @@ button {
 .cards-final {
     background: #fff;
     border: 1px solid rgba(16, 26, 46, 0.08);
-    border-radius: 14px;
+    border-radius: 9px;
     padding: 24px;
 }
 
@@ -676,17 +687,17 @@ button {
 .botao-add-baixo {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 6px;
-    width: 100%;
+    width: 150px;
+    margin-left: auto;
     padding: 14px;
     margin-top: 18px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid rgba(16, 26, 46, 0.1);
     background: #2F6BFF;
     color: #ffffff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     transition: background 0.2s ease;
 }

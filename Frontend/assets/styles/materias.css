@@ -568,14 +568,13 @@ button {
     font-weight: 600;
     color: #ffffff;
     cursor: pointer;
-    transition: 0.15s ease;
+
 }
 
 .btn-entrar:hover{
-    transform: scale(1.01);
-    box-shadow: 0 6px 12px rgba(47, 107, 255, 0.25);
+    background: linear-gradient(135deg, #0d4ff7, #3564ff);
+   
 }
-
 /* ===== Cronograma: overlay + dropdown (modal) ===== */
 .cronograma-container {
     position: fixed;
