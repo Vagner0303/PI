@@ -85,187 +85,15 @@
                         </p>
                     </div>
 
-                    
-
                     <a class="add-materia" href="">
                         <i data-lucide="plus"></i>
                         Nova matéria
                     </a>
                 </div>
 
+                <!-- Os cards são inseridos aqui dinamicamente pelo materias.js -->
                 <div class="cards">
-
-                    <div class="card">
-
-                        <div class="card-icone">
-                            <i data-lucide="chart-spline"></i>
-                        </div>
-
-                        <div class="Info-materia">
-                            <span class="nome">
-                                Matemática
-                            </span>
-                            <span class="descricao">
-                                Prova de trigonometria
-                            </span>
-                        </div>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-
-                        <div class="dropdown-ponto">
-                            <i data-lucide="ellipsis-vertical"></i>
-
-                            <div class="menu-ponto">
-                                <button class="item-menu" type="button">
-                                    <i data-lucide="pencil"></i>
-                                    Editar
-                                </button>
-                                <button class="item-menu excluir" type="button">
-                                    <i data-lucide="trash-2"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-icone">
-                            <i data-lucide="chart-spline"></i>
-                        </div>
-
-                        <div class="Info-materia">
-                            <span class="nome">
-                                Português
-                            </span>
-                            <span class="descricao">
-                                Prova de trigonometria
-                            </span>
-                        </div>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-
-                        <div class="dropdown-ponto">
-                            <i data-lucide="ellipsis-vertical"></i>
-
-                            <div class="menu-ponto">
-                                <button class="item-menu" type="button">
-                                    <i data-lucide="pencil"></i>
-                                    Editar
-                                </button>
-                                <button class="item-menu excluir" type="button">
-                                    <i data-lucide="trash-2"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-icone">
-                            <i data-lucide="chart-spline"></i>
-                        </div>
-
-                        <div class="Info-materia">
-                            <span class="nome">
-                                História
-                            </span>
-                            <span class="descricao">
-                                Prova de trigonometria
-                            </span>
-                        </div>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-
-                        <div class="dropdown-ponto">
-                            <i data-lucide="ellipsis-vertical"></i>
-
-                            <div class="menu-ponto">
-                                <button class="item-menu" type="button">
-                                    <i data-lucide="pencil"></i>
-                                    Editar
-                                </button>
-                                <button class="item-menu excluir" type="button">
-                                    <i data-lucide="trash-2"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-icone">
-                            <i data-lucide="chart-spline"></i>
-                        </div>
-
-                        <div class="Info-materia">
-                            <span class="nome">
-                                Ciencia
-                            </span>
-                            <span class="descricao">
-                                Prova de trigonometria
-                            </span>
-                        </div>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-
-                        <div class="dropdown-ponto">
-                            <i data-lucide="ellipsis-vertical"></i>
-
-                            <div class="menu-ponto">
-                                <button class="item-menu" type="button">
-                                    <i data-lucide="pencil"></i>
-                                    Editar
-                                </button>
-                                <button class="item-menu excluir" type="button">
-                                    <i data-lucide="trash-2"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-
-                        <div class="card-icone">
-                            <i data-lucide="chart-spline"></i>
-                        </div>
-
-                        <div class="Info-materia">
-                            <span class="nome"> Geografia </span>
-                            <span class="descricao"> Prova de trigonometria </span>
-                        </div>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-
-                        <div class="dropdown-ponto">
-                            <i data-lucide="ellipsis-vertical"></i>
-
-                            <div class="menu-ponto">
-                                <button class="item-menu" type="button">
-                                    <i data-lucide="pencil"></i>
-                                    Editar
-                                </button>
-                                <button class="item-menu excluir" type="button">
-                                    <i data-lucide="trash-2"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                    <p>Carregando matérias...</p>
                 </div>
 
                 <div class="cronograma-container">
@@ -287,15 +115,21 @@
                             </button>
                         </div>
 
-                        
-
                         <!-- Matéria -->
                         <div class="campo">
                             <label for="materia"><i data-lucide="book-open"></i> Nome da Matéria </label>
 
                             <div class="input-container">
                                 <input type="text" id="materia" placeholder="Ex: Matemática">
-                                
+                            </div>
+                        </div>
+                        
+                        <!-- Professor -->
+                        <div class="campo">
+                            <label for="professor"><i data-lucide="user-round"></i> Professor</label>
+
+                            <div class="input-container">
+                                <input type="text" id="professor" placeholder="Ex: João Silva">
                             </div>
                         </div>
 
@@ -307,6 +141,7 @@
                             <span class="contador">0/150 caracteres</span>
                         </div>
 
+                        <!-- Professor -->
                         
 
                         <!-- Botão -->
@@ -329,10 +164,7 @@
         lucide.createIcons();
     </script>
     <script src="../scripts/materias.js"></script>
-    
-    <script>
-        
-    </script>
+
 </body>
 
 </html>
