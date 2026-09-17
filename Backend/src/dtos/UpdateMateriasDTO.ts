@@ -1,5 +1,6 @@
+// UpdateMateriaDTO.ts
 export interface UpdateMateriasDTO {
     nome?: string
     descricao?: string
-    prioridade?: 'baixa' | 'media' | 'alta'
+    professor?: string
 }

@@ -3,8 +3,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
-import { errorHandler } from './middlewares/errorHandler'
 import materiaRoutes from './routes/materiaRoutes'
+import { errorHandler } from './middlewares/errorHandler'
 
 const app: Application = express()
 const PORT = Number(process.env.PORT || '3000')
@@ -21,17 +21,14 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
+// Rotas
 app.use(authRoutes)
-app.use(userRoutes)
+app.use('/users', userRoutes)
+app.use(materiaRoutes)
 
+// Tratamento de erros (sempre por último)
 app.use(errorHandler)
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`)
-
-app.use(authRoutes)
-app.use(userRoutes)
-app.use(materiaRoutes)
 })
-
-

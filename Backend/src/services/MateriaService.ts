@@ -31,12 +31,11 @@ export class MateriaService {
             throw new Error('A descrição da matéria é obrigatória')
         }
 
-        const prioridade = data.prioridade || 'media'
+        const professor = data.professor?.trim() || null
 
         const [result] = await pool.query<ResultSetHeader>(
-            `INSERT INTO materias (nome, descricao, prioridade)
-             VALUES (?, ?, ?)`,
-            [data.nome, data.descricao, prioridade]
+            `INSERT INTO materias (nome, descricao, professor) VALUES (?, ?, ?)`,
+            [data.nome, data.descricao, professor]
         )
 
         return this.buscarPorId(result.insertId)
@@ -47,7 +46,7 @@ export class MateriaService {
 
         const nome = data.nome ?? materiaAtual.nome
         const descricao = data.descricao ?? materiaAtual.descricao
-        const prioridade = data.prioridade ?? materiaAtual.prioridade
+        const professor = data.professor !== undefined ? (data.professor.trim() || null) : materiaAtual.professor
 
         if (nome.trim() === '') {
             throw new Error('O nome não pode ficar vazio')
@@ -57,17 +56,15 @@ export class MateriaService {
         }
 
         await pool.query(
-            `UPDATE materias
-             SET nome = ?, descricao = ?, prioridade = ?
-             WHERE id = ?`,
-            [nome, descricao, prioridade, id]
+            `UPDATE materias SET nome = ?, descricao = ?, professor = ? WHERE id = ?`,
+            [nome, descricao, professor, id]
         )
 
         return this.buscarPorId(id)
     }
 
     async excluir(id: number): Promise<void> {
-        await this.buscarPorId(id) // garante que existe
+        await this.buscarPorId(id)
         await pool.query('DELETE FROM materias WHERE id = ?', [id])
     }
 }
