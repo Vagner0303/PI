@@ -735,7 +735,47 @@ button {
 .criar-btn:active {
     transform: scale(0.99);
 }
+/* ===== Cores de prioridade (adicionar ao cronograma.css) ===== */
 
+.card-prioridade .prioridade.alta {
+    background: #ffeaea;
+    color: #ff2f2f;
+}
+
+.card-prioridade .prioridade.media {
+    background: #fff4e0;
+    color: #e8971d;
+}
+
+.card-prioridade .prioridade.baixa {
+    background: #e9f9ee;
+    color: #22c55e;
+}
+
+/* ===== Toast de notificação ===== */
+
+.toast-notificacao {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: #22c55e;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast-notificacao.visivel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
 /* ===== Responsivo ===== */
 
 @media (max-width: 1024px) {
