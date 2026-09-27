@@ -5,6 +5,7 @@ import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
 import materiaRoutes from './routes/materiaRoutes'
 import { errorHandler } from './middlewares/errorHandler'
+import cronogramaRoutes from './routes/cronogramaRoutes'
 
 const app: Application = express()
 const PORT = Number(process.env.PORT || '3000')
@@ -25,6 +26,7 @@ app.use(cookieParser())
 app.use(authRoutes)
 app.use('/users', userRoutes)
 app.use(materiaRoutes)
+app.use(cronogramaRoutes)
 
 // Tratamento de erros (sempre por último)
 app.use(errorHandler)

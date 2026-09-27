@@ -1,14 +1,14 @@
 import { Request, Response, NextFunction } from 'express'
-import { MateriaService } from '../services/MateriaService'
+import { CronogramaService } from '../services/CronogramaService'
 
-const materiaService = new MateriaService()
+const cronogramaService = new CronogramaService()
 
-export class MateriaController {
+export class CronogramaController {
     async listar(req: Request, res: Response, next: NextFunction) {
         try {
             const usuarioId = req.user.id
-            const materias = await materiaService.listar(usuarioId)
-            res.status(200).json(materias)
+            const cronogramas = await cronogramaService.listar(usuarioId)
+            res.status(200).json(cronogramas)
         } catch (err) {
             next(err)
         }
@@ -18,8 +18,8 @@ export class MateriaController {
         try {
             const id = Number(req.params.id)
             const usuarioId = req.user.id
-            const materia = await materiaService.buscarPorId(id, usuarioId)
-            res.status(200).json(materia)
+            const cronograma = await cronogramaService.buscarPorId(id, usuarioId)
+            res.status(200).json(cronograma)
         } catch (err) {
             next(err)
         }
@@ -28,8 +28,8 @@ export class MateriaController {
     async criar(req: Request, res: Response, next: NextFunction) {
         try {
             const usuarioId = req.user.id
-            const materia = await materiaService.criar(usuarioId, req.body)
-            res.status(201).json(materia)
+            const cronograma = await cronogramaService.criar(usuarioId, req.body)
+            res.status(201).json(cronograma)
         } catch (err) {
             next(err)
         }
@@ -39,8 +39,8 @@ export class MateriaController {
         try {
             const id = Number(req.params.id)
             const usuarioId = req.user.id
-            const materia = await materiaService.atualizar(id, usuarioId, req.body)
-            res.status(200).json(materia)
+            const cronograma = await cronogramaService.atualizar(id, usuarioId, req.body)
+            res.status(200).json(cronograma)
         } catch (err) {
             next(err)
         }
@@ -50,7 +50,7 @@ export class MateriaController {
         try {
             const id = Number(req.params.id)
             const usuarioId = req.user.id
-            await materiaService.excluir(id, usuarioId)
+            await cronogramaService.excluir(id, usuarioId)
             res.status(204).send()
         } catch (err) {
             next(err)

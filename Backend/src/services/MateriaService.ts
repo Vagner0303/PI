@@ -5,25 +5,35 @@ import { CreateMateriasDTO } from '../dtos/CreateMateriasDTO'
 import { UpdateMateriasDTO } from '../dtos/UpdateMateriasDTO'
 
 export class MateriaService {
-    async listar(): Promise<Materia[]> {
+    async listar(usuarioId: number): Promise<Materia[]> {
         const [rows] = await pool.query<RowDataPacket[]>(
-            'SELECT * FROM materias ORDER BY id'
+            'SELECT * FROM materias WHERE usuario_id = ? ORDER BY id',
+            [usuarioId]
         )
         return rows as Materia[]
     }
 
-    async buscarPorId(id: number): Promise<Materia> {
+    async buscarPorId(id: number, usuarioId: number): Promise<Materia> {
         const [rows] = await pool.query<RowDataPacket[]>(
             'SELECT * FROM materias WHERE id = ?',
             [id]
         )
+
         if (rows.length === 0) {
             throw new Error('Matéria não encontrada')
         }
-        return rows[0] as Materia
+
+        const materia = rows[0] as Materia
+
+        // Não revela que a matéria existe caso seja de outro usuário
+        if (materia.usuario_id !== usuarioId) {
+            throw new Error('Matéria não encontrada')
+        }
+
+        return materia
     }
 
-    async criar(data: CreateMateriasDTO): Promise<Materia> {
+    async criar(usuarioId: number, data: CreateMateriasDTO): Promise<Materia> {
         if (!data.nome || data.nome.trim() === '') {
             throw new Error('O nome da matéria é obrigatório')
         }
@@ -34,15 +44,15 @@ export class MateriaService {
         const professor = data.professor?.trim() || null
 
         const [result] = await pool.query<ResultSetHeader>(
-            `INSERT INTO materias (nome, descricao, professor) VALUES (?, ?, ?)`,
-            [data.nome, data.descricao, professor]
+            `INSERT INTO materias (usuario_id, nome, descricao, professor) VALUES (?, ?, ?, ?)`,
+            [usuarioId, data.nome, data.descricao, professor]
         )
 
-        return this.buscarPorId(result.insertId)
+        return this.buscarPorId(result.insertId, usuarioId)
     }
 
-    async atualizar(id: number, data: UpdateMateriasDTO): Promise<Materia> {
-        const materiaAtual = await this.buscarPorId(id)
+    async atualizar(id: number, usuarioId: number, data: UpdateMateriasDTO): Promise<Materia> {
+        const materiaAtual = await this.buscarPorId(id, usuarioId)
 
         const nome = data.nome ?? materiaAtual.nome
         const descricao = data.descricao ?? materiaAtual.descricao
@@ -60,11 +70,11 @@ export class MateriaService {
             [nome, descricao, professor, id]
         )
 
-        return this.buscarPorId(id)
+        return this.buscarPorId(id, usuarioId)
     }
 
-    async excluir(id: number): Promise<void> {
-        await this.buscarPorId(id)
+    async excluir(id: number, usuarioId: number): Promise<void> {
+        await this.buscarPorId(id, usuarioId)
         await pool.query('DELETE FROM materias WHERE id = ?', [id])
     }
 }
