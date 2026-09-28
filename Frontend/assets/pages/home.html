@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../scripts/ProtejePages.js"></script>
+    <script src="../scripts/miniCronograma.js" defer></script>
 </head>
+
 <body>
 
     <div class="pagina">
@@ -24,52 +27,50 @@
                         <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
                     </button>
 
-                    <a href="./config.html" class="botao-icone botao-perfil" aria-label="Perfil" type="button" >
-                        <i  data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
+                    <a href="./config.html" class="botao-icone botao-perfil" aria-label="Perfil" type="button">
+                        <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
                     </a>
                 </div>
             </div>
-
-
         </header>
 
         <div class="corpo">
 
-<aside class="barra-lateral">
+            <aside class="barra-lateral">
 
-    <nav class="dentro-lateral">
-        <a href="./home.html" class="opcao ativo">
-            <i data-lucide="layout-dashboard"></i>
-            Inicio
-        </a>
+                <nav class="dentro-lateral">
+                    <a href="./home.html" class="opcao ativo">
+                        <i data-lucide="layout-dashboard"></i>
+                        Inicio
+                    </a>
 
-        <a href="./materias.html" class="opcao">
-            <i data-lucide="book-marked"></i>
-            Matérias
-        </a>
+                    <a href="./materias.html" class="opcao">
+                        <i data-lucide="book-marked"></i>
+                        Matérias
+                    </a>
 
-       <a href="./cronograma.html" class="opcao">
-            <i data-lucide="calendar-range"></i>
-            Cronograma
-        </a>
+                    <a href="./cronograma.html" class="opcao">
+                        <i data-lucide="calendar-range"></i>
+                        Cronograma
+                    </a>
 
-        <a href="./metas.html" class="opcao">
-            <i data-lucide="goal"></i>
-            Metas
-        </a>
+                    <a href="./metas.html" class="opcao">
+                        <i data-lucide="goal"></i>
+                        Metas
+                    </a>
 
-        <a href="./desempenho.html" class="opcao">
-            <i data-lucide="chart-spline"></i>
-            Desempenho
-        </a>
+                    <a href="./desempenho.html" class="opcao">
+                        <i data-lucide="chart-spline"></i>
+                        Desempenho
+                    </a>
 
-        <a href="./config.html" class="opcao">
-            <i data-lucide="settings"></i>
-            Configurações
-        </a>
-    </nav>
+                    <a href="./config.html" class="opcao">
+                        <i data-lucide="settings"></i>
+                        Configurações
+                    </a>
+                </nav>
 
-</aside>
+            </aside>
 
             <main class="conteudo">
 
@@ -171,7 +172,7 @@
 
                         <div class="card-topo2">
                             <div class="card-icone2">
-                                <i data-lucide="arrow-down-1-0"></i> 
+                                <i data-lucide="arrow-down-1-0"></i>
                             </div>
                         </div>
 
@@ -192,7 +193,7 @@
 
                         <div class="card-topo2">
                             <div class="card-icone2">
-                                <i data-lucide="map"></i>  
+                                <i data-lucide="map"></i>
                             </div>
                         </div>
 
@@ -213,7 +214,7 @@
 
                         <div class="card-topo2">
                             <div class="card-icone2">
-                                <i data-lucide="case-upper"></i>  
+                                <i data-lucide="case-upper"></i>
                             </div>
                         </div>
 
@@ -238,8 +239,8 @@
 
                     <div class="perfil-topo">
 
-                            <div class="avatar"></div>
-                        
+                        <div class="avatar"></div>
+
                         <div class="perfil-info">
                             <div class="perfil-nome"></div>
                             <div class="perfil-objetivo">Estudos</div>
@@ -279,46 +280,10 @@
 
                     <div class="cronograma-cabeca">
                         <h3>Cronograma</h3>
-                        
                     </div>
 
                     <div class="cronograma-lista">
-
-                        <div class="item-cronograma item-concluido">
-                            <div class="item-cabeca">
-                                <div class="item-hora">15 / 08</div>
-                                <span class="badge badge-alta">Alta</span>
-                            </div>
-                            <span class="item-nome">Matemática</span>
-                            <div class="item-topico">Funções quadráticas</div>
-                        </div>
-
-                        <div class="item-cronograma">
-                            <div class="item-cabeca">
-                                <div class="item-hora">04 / 08</div>
-                                <span class="badge badge-alta">Alta</span>
-                            </div>
-                            <span class="item-nome">Redação</span>
-                            <div class="item-topico">Dissertação argumentativa</div>
-                        </div>
-
-                        <div class="item-cronograma">
-                            <div class="item-cabeca">
-                                <div class="item-hora">01 / 08</div>
-                                <span class="badge badge-atrasado">Atrasado</span>
-                            </div>
-                            <span class="item-nome">Química</span>
-                            <div class="item-topico">Estequiometria</div>
-                        </div>
-
-                        <div class="item-cronograma">
-                            <div class="item-cabeca">
-                                <div class="item-hora">23 / 07</div>
-                                <span class="badge badge-atrasado">Atrasado</span>
-                            </div>
-                            <span class="item-nome">Revisão geral</span>
-                            <div class="item-topico">Simulado ENEM</div>
-                        </div>
+                        <p style="color:#9aa4b2; font-size:13px;">Carregando...</p>
                     </div>
 
                     <a class="cronograma-rodape" href="./cronograma.html">
@@ -334,4 +299,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
