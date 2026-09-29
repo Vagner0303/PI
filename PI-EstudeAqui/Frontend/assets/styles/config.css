@@ -576,7 +576,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px 18px;
     font-size: 14px;
     font-weight: 600;

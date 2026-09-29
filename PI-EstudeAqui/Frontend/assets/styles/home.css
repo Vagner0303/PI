@@ -51,6 +51,10 @@ body {
 
 }
 
+.dark .perfil-objetivo {
+   color: rgba(182, 182, 182, 0.795);
+}
+
 .dark .perfil-stats .stat-chip {
     background: linear-gradient(135deg, #01033398, #0f0f0f);
     border-color: rgba(255, 255, 255, 0.08);
@@ -949,13 +953,19 @@ button {
 }
 
 .badge-media {
-    color: orange;
-    background-color: rgba(216, 144, 10, 0.292);
+    background: #fff4e0;
+    color: #e8971d;
     border-radius: 40px;
 }
 
 .badge-baixa {
-    color: rgba(10, 216, 75, 0.91);
-    background-color: rgba(10, 216, 75, 0.519);
+    background: #e9f9ee;
+    color: #22c55e;
+    border-radius: 40px;
+}
+
+.badge-alta {
+    background: #ffeaea;
+    color: #ff2f2f;
     border-radius: 40px;
 }

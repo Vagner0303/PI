@@ -91,7 +91,7 @@
                             <i data-lucide="clock"></i>
                         </div>
                         <span class="rotulo">Horas estudadas</span>
-                        <span class="valor">3h 20min</span>
+                        <span class="valor" id="horas-estudadas">0h 00min</span>
                         <span class="delta"> Esta semana</span>
                     </div>
 
@@ -100,7 +100,7 @@
                             <i data-lucide="circle-check"></i>  
                         </div>
                         <span class="rotulo">Taxa de Acertos Geral</span>
-                        <span class="valor">70%</span>
+                        <span class="valor" id="taxa-acertos">0%</span>
                         <span class="delta"> Este mês</span>
                     </div>
 
@@ -109,7 +109,7 @@
                             <i data-lucide="circle-x"></i>  
                         </div>
                         <span class="rotulo">Taxa de Erros Geral</span>
-                        <span class="valor">78%</span>
+                        <span class="valor" id="taxa-erros">0%</span>
                         <span class="delta">Este mês</span>
                     </div>
 
@@ -126,22 +126,7 @@
                             </div>
                         </div>
 
-                        <div class="grafico-barras">
-                            <div class="eixo-y">
-                                <span>4h</span>
-                                <span>3h</span>
-                                <span>2h</span>
-                                <span>1h</span>
-                                <span>0h</span>
-                            </div>
-                            <div class="barra-coluna"><div class="barra" style="height: 72%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 48%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 78%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 66%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 100%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 82%;"></div></div>
-                            <div class="barra-coluna"><div class="barra" style="height: 24%;"></div></div>
-                        </div>
+                        <div class="grafico-barras"><div class="eixo-y"><span>4h</span><span>3h</span><span>2h</span><span>1h</span><span>0h</span></div></div>
 
                         <div class="dias-semana">
                             <span>seg</span>
@@ -162,7 +147,7 @@
                     <div class="card-desempenho">
                         <span>Desempenho por matéria</span>
 
-                        <table class="tabela-materias">
+                        <table class="tabela-materias" id="tabela-desempenho">
                             <thead>
                                 <tr>
                                     <th>Matéria</th>
@@ -171,80 +156,7 @@
                                    
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="materia-nome">
-                                            <span class="icone-materia" style="background:#2F6BFF;">Mt</span>
-                                            Matemática
-                                        </div>
-                                    </td>
-                                    <td class="col-progresso">
-                                        <div class="progresso-linha">
-                                            <div class="meta-barra">
-                                                <div class="meta-progresso" style="width: 85%; background:#2F6BFF;"></div>
-                                            </div>
-                                            <span class="valor-porc">85%</span>
-                                        </div>
-                                    </td>
-                                    <td>12/14</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="materia-nome">
-                                            <span class="icone-materia" style="background:#16A34A;">Hi</span>
-                                            História
-                                        </div>
-                                    </td>
-                                    <td class="col-progresso">
-                                        <div class="progresso-linha">
-                                            <div class="meta-barra">
-                                                <div class="meta-progresso" style="width: 72%; background:#16A34A;"></div>
-                                            </div>
-                                            <span class="valor-porc">72%</span>
-                                        </div>
-                                    </td>
-                                    <td>8/11</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="materia-nome">
-                                            <span class="icone-materia" style="background:#1D4ED8;">AB</span>
-                                            Português
-                                        </div>
-                                    </td>
-                                    <td class="col-progresso">
-                                        <div class="progresso-linha">
-                                            <div class="meta-barra">
-                                                <div class="meta-progresso" style="width: 65%; background:#1D4ED8;"></div>
-                                            </div>
-                                            <span class="valor-porc">65%</span>
-                                        </div>
-                                    </td>
-                                    <td>6/9</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="materia-nome">
-                                            <span class="icone-materia" style="background:#F59E0B;">Qm</span>
-                                            Química
-                                        </div>
-                                    </td>
-                                    <td class="col-progresso">
-                                        <div class="progresso-linha">
-                                            <div class="meta-barra">
-                                                <div class="meta-progresso" style="width: 58%; background:#F59E0B;"></div>
-                                            </div>
-                                            <span class="valor-porc">58%</span>
-                                        </div>
-                                    </td>
-                                    <td>7/12</td>
-                                    
-                                </tr>
-                            </tbody>
+                            <tbody><tr><td colspan="3" style="text-align:center;color:#9ca3af;padding:24px;">Informações não carregadas</td></tr></tbody>
                         </table>
 
                         
@@ -259,6 +171,7 @@
     <script>
         lucide.createIcons();
     </script>
-    <script src="assets/scripts/"></script>
+    <p id="erro-desempenho" style="color:#ef4444;text-align:center;"></p>
+    <script src="../scripts/desempenho.js"></script>
 </body>
 </html>

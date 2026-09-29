@@ -6,6 +6,8 @@ import userRoutes from './routes/userRoutes'
 import materiaRoutes from './routes/materiaRoutes'
 import { errorHandler } from './middlewares/errorHandler'
 import cronogramaRoutes from './routes/cronogramaRoutes'
+import desempenhoRoutes from './routes/desempenhoRoutes'
+import { desempenhoService } from './controllers/DesempenhoController'
 
 const app: Application = express()
 const PORT = Number(process.env.PORT || '3000')
@@ -27,10 +29,18 @@ app.use(authRoutes)
 app.use('/users', userRoutes)
 app.use(materiaRoutes)
 app.use(cronogramaRoutes)
+app.use(desempenhoRoutes)
 
 // Tratamento de erros (sempre por último)
 app.use(errorHandler)
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`)
-})
+async function iniciarServidor() {
+    try {
+        await desempenhoService.garantirTabela()
+        app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`))
+    } catch (error) {
+        console.error('Falha ao preparar o desempenho:', error)
+        process.exit(1)
+    }
+}
+iniciarServidor()

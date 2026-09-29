@@ -60,6 +60,16 @@ button {
     transition: 0.3s;
 }
 
+.dark .card-stat .rotulo {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.dark .card-stat .delta {
+    color: rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
 .dark .conteudo .txt {
     color: rgba(255, 254, 254, 0.918);
     transition: 0.3s;
@@ -436,13 +446,14 @@ button {
 .seletor-periodo {
     display: flex;
     align-items: center;
+    user-select: none;
     gap: 6px;
     font-size: 13px;
     color: var(--cinza-texto);
     border: 1px solid var(--borda);
     border-radius: 8px;
     padding: 6px 10px;
-    cursor: pointer;
+  
 }
 
 .seletor-periodo i {

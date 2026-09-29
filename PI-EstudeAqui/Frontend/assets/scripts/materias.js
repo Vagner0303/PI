@@ -25,6 +25,37 @@ const tituloModal = document.querySelector(".header-textos h2");
 /* Guarda o id da matéria em edição (null = criando uma nova) */
 let editandoId = null;
 
+/* ===== Últimas 3 matérias acessadas (por usuário) ===== */
+function lerUltimasMaterias() {
+    try {
+        return JSON.parse(localStorage.getItem(chaveUltimasMaterias())) || [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function salvarUltimaMateria(materia) {
+    let lista = lerUltimasMaterias();
+
+    // remove se já existir (para subir pro topo) e coloca no início
+    lista = lista.filter(function (m) {
+        return String(m.id) !== String(materia.id);
+    });
+    lista.unshift(materia);
+
+    // mantém só as 3 mais recentes
+    lista = lista.slice(0, 3);
+
+    localStorage.setItem(chaveUltimasMaterias(), JSON.stringify(lista));
+}
+
+function removerDasUltimasMaterias(id) {
+    const lista = lerUltimasMaterias().filter(function (m) {
+        return String(m.id) !== String(id);
+    });
+    localStorage.setItem(chaveUltimasMaterias(), JSON.stringify(lista));
+}
+
 /* ===== Abrir / Fechar modal ===== */
 function abrirDropdown() {
     dropdown.classList.add("open");
@@ -106,7 +137,7 @@ async function carregarMaterias() {
 
 function renderizarMaterias(materias) {
     if (!materias || materias.length === 0) {
-        containerCards.innerHTML = `<p>Nenhuma matéria cadastrada ainda.</p>`;
+        containerCards.innerHTML = `<p style="color:#9ca3af;">Nenhuma matéria cadastrada ainda.</p>`;
         return;
     }
 
@@ -120,7 +151,6 @@ function renderizarMaterias(materias) {
             <div class="Info-materia">
                 <span class="nome">${escapeHtml(materia.nome)}</span>
                 <span class="descricao">${escapeHtml(materia.descricao)}</span>
-               
             </div>
 
             <a class="btn-entrar" href="./EnterMate.html?materiaId=${materia.id}">
@@ -200,15 +230,42 @@ if (botaoCriar) {
     });
 }
 
-/* ===== Editar / Excluir (delegação de eventos, pois os cards são recriados) ===== */
+/* ===== Cliques nos cards: Entrar / 3 pontos / Editar / Excluir (delegação de eventos) ===== */
 containerCards.addEventListener("click", async function (event) {
     const card = event.target.closest(".card");
     if (!card) return;
 
     const id = card.dataset.id;
 
+    /* Entrar: salva como última matéria acessada (o link segue normalmente) */
+    if (event.target.closest(".btn-entrar")) {
+        salvarUltimaMateria({
+            id: id,
+            nome: card.querySelector(".nome")?.textContent || "",
+            descricao: card.querySelector(".descricao")?.textContent || ""
+        });
+        return;
+    }
+
+    /* Menu de 3 pontos: abrir/fechar (ignora cliques dentro do próprio menu) */
+    const dropdownPonto = event.target.closest(".dropdown-ponto");
+    const clicouNoMenu = event.target.closest(".menu-ponto");
+
+    if (dropdownPonto && !clicouNoMenu) {
+        event.stopPropagation();
+        const menu = dropdownPonto.querySelector(".menu-ponto");
+        if (menu) {
+            const jaAberto = menu.classList.contains("open");
+            fecharTodosOsMenusPonto();
+            menu.classList.toggle("open", !jaAberto);
+        }
+        return;
+    }
+
     /* Editar */
     if (event.target.closest(".item-menu.editar")) {
+        fecharTodosOsMenusPonto();
+
         try {
             const res = await fetch(`${API_URL}/${id}`, {
                 credentials: "include",
@@ -237,6 +294,8 @@ containerCards.addEventListener("click", async function (event) {
 
     /* Excluir */
     if (event.target.closest(".item-menu.excluir")) {
+        fecharTodosOsMenusPonto();
+
         const confirmar = confirm("Tem certeza que deseja excluir esta matéria?");
         if (!confirmar) return;
 
@@ -249,23 +308,13 @@ containerCards.addEventListener("click", async function (event) {
 
             if (!res.ok && res.status !== 204) throw new Error("Erro ao excluir matéria");
 
+            removerDasUltimasMaterias(id);
             await carregarMaterias();
         } catch (err) {
             console.error(err);
             alert("Não foi possível excluir a matéria.");
         }
         return;
-    }
-
-    /* Menu de 3 pontos: abrir/fechar */
-    const dropdownPonto = event.target.closest(".dropdown-ponto");
-    if (dropdownPonto) {
-        const menu = dropdownPonto.querySelector(".menu-ponto");
-        if (menu) {
-            const jaAberto = menu.classList.contains("open");
-            fecharTodosOsMenusPonto();
-            menu.classList.toggle("open", !jaAberto);
-        }
     }
 });
 

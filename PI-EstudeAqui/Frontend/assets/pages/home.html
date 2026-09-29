@@ -14,6 +14,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../scripts/ProtejePages.js"></script>
     <script src="../scripts/miniCronograma.js" defer></script>
+    <!-- usuario.js precisa vir ANTES do continuarEstudando.js -->
+    <script src="../scripts/usuario.js" defer></script>
+    <script src="../scripts/continuarEstudando.js" defer></script>
 </head>
 
 <body>
@@ -91,7 +94,7 @@
                         </div>
 
                         <span class="card-valor">
-                            3h 20min
+                            0h 00min
                         </span>
 
                         <span class="card-legenda">
@@ -118,7 +121,7 @@
                         </div>
 
                         <span class="card-valor">
-                            4
+                            0
                         </span>
 
                         <span class="card-legenda">
@@ -145,7 +148,7 @@
                         </div>
 
                         <span class="card-valor">
-                            70%
+                            0%
                         </span>
 
                         <span class="card-legenda">
@@ -166,70 +169,8 @@
 
                 <h1 class="txt">Continuar estudando</h1>
 
-                <div class="cards2">
-
-                    <div class="card">
-
-                        <div class="card-topo2">
-                            <div class="card-icone2">
-                                <i data-lucide="arrow-down-1-0"></i>
-                            </div>
-                        </div>
-
-                        <span class="card-valor2">
-                            Matematica
-                        </span>
-                        <span class="card-legenda">
-                            3 atividades
-                        </span>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="card-topo2">
-                            <div class="card-icone2">
-                                <i data-lucide="map"></i>
-                            </div>
-                        </div>
-
-                        <span class="card-valor2">
-                            História
-                        </span>
-                        <span class="card-legenda">
-                            3 atividades
-                        </span>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-                    </div>
-
-
-                    <div class="card">
-
-                        <div class="card-topo2">
-                            <div class="card-icone2">
-                                <i data-lucide="case-upper"></i>
-                            </div>
-                        </div>
-
-                        <span class="card-valor2">
-                            Português
-                        </span>
-                        <span class="card-legenda">
-                            3 atividades
-                        </span>
-
-                        <a class="btn-entrar" href="#">
-                            Entrar
-                        </a>
-                    </div>
-                </div>
+                <!-- Preenchido pelo continuarEstudando.js com as 3 últimas matérias acessadas -->
+                <div class="cards2" id="continuar-estudando"></div>
             </main>
 
 
@@ -252,12 +193,12 @@
 
                         <div class="stat-chip">
                             <i class="flame" data-lucide="flame"></i>
-                            12 dias
+                            1 dia
                         </div>
 
                         <div class="stat-chip">
                             <i class="level" data-lucide="gauge"></i>
-                            Nível 5
+                            Nível 1
                         </div>
                     </div>
 
@@ -283,7 +224,7 @@
                     </div>
 
                     <div class="cronograma-lista">
-                        <p style="color:#9aa4b2; font-size:13px;">Carregando...</p>
+                        
                     </div>
 
                     <a class="cronograma-rodape" href="./cronograma.html">

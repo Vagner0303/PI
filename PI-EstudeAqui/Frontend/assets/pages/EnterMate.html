@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EstudeAqui - Matemática</title>
+    <title>EstudeAqui - Matéria</title>
 
     <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
     <script src="../scripts/tema.js"></script>
@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../scripts/ProtejePages.js"></script>
 </head>
 <body>
 
@@ -28,9 +29,9 @@
                         <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
                     </button>
 
-                    <button class="botao-icone botao-perfil" aria-label="Perfil" type="button">
+                    <a href="./config.html" class="botao-icone botao-perfil" aria-label="Perfil">
                         <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </header>
@@ -41,7 +42,7 @@
                 <nav class="dentro-lateral">
                     <a href="./home.html" class="opcao">
                         <i data-lucide="layout-dashboard"></i>
-                        Dashboard
+                        Início
                     </a>
 
                     <a href="./materias.html" class="opcao ativo">
@@ -77,20 +78,21 @@
                 <nav class="navegacao" aria-label="Você está em">
                     <a href="./materias.html">Matérias</a>
                     <i data-lucide="chevron-right"></i>
-                    <span aria-current="page">Matemática</span>
+                    <span id="materia-breadcrumb" aria-current="page">Carregando...</span>
                 </nav>
 
-                <!-- Cabeçalho da matéria -->
+                <!-- Cabeçalho da matéria (preenchido pelo EnterMate.js) -->
                 <section class="materia-topo">
                     <div class="materia-icone">
-                        <i data-lucide="sigma"></i>
+                        <i data-lucide="book-open"></i>
                     </div>
                     <div>
-                        <h1>Matemática</h1>
+                        <h1 id="materia-nome">Carregando...</h1>
                         <p class="conteudo-sub">
                             <i data-lucide="user-round"></i>
-                            Professor: João pé de feijão
+                            <span id="materia-professor">Professor: -</span>
                         </p>
+                        <p class="conteudo-sub" id="materia-descricao"></p>
                     </div>
                 </section>
 
@@ -194,6 +196,7 @@
                                         <p>Δ &lt; 0: a equação não tem respostas reais.</p>
                                     </div>
                                     <time class="nota-data">Hoje às 14:05</time>
+                                    <button type="button" class="btn-excluir">Excluir</button>
                                 </article>
 
                                 <article class="nota">
@@ -208,6 +211,7 @@
                                         <p>Δ &lt; 0: a equação não tem respostas reais.</p>
                                     </div>
                                     <time class="nota-data">Hoje às 14:05</time>
+                                    <button type="button" class="btn-excluir">Excluir</button>
                                 </article>
 
                                 <article class="nota">
@@ -222,6 +226,7 @@
                                         <p>Δ &lt; 0: a equação não tem respostas reais.</p>
                                     </div>
                                     <time class="nota-data">Hoje às 14:05</time>
+                                    <button type="button" class="btn-excluir">Excluir</button>
                                 </article>
 
                                 <article class="nota">
@@ -236,6 +241,7 @@
                                         <p>Δ &lt; 0: a equação não tem respostas reais.</p>
                                     </div>
                                     <time class="nota-data">Hoje às 14:05</time>
+                                    <button type="button" class="btn-excluir">Excluir</button>
                                 </article>
                             </div>
                         </div>
@@ -255,23 +261,23 @@
                             <div class="links">
                                 <!-- Repita este bloco para cada link -->
                                 <div class="link-item">
-                                    <span class="link-nome">Link para a apresentação</span>
-                                    <a href="https://exemplo.com/apresentacao" target="_blank" rel="noopener">https://exemplo.com/apresentacao</a>
+                                      <span class="link-nome">Link Figma</span>
+                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
+                                </div>
+
+                                <div class="link-item">
+                                    <span class="link-nome">Link Figma</span>
+                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
+                                </div>
+
+                                <div class="link-item">
+                                      <span class="link-nome">Link Figma</span>
+                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
                                 </div>
 
                                 <div class="link-item">
                                     <span class="link-nome">Link para a apresentação</span>
-                                    <a href="https://exemplo.com/apresentacao" target="_blank" rel="noopener">https://exemplo.com/apresentacao</a>
-                                </div>
-
-                                <div class="link-item">
-                                    <span class="link-nome">Link para a apresentação</span>
-                                    <a href="https://exemplo.com/apresentacao" target="_blank" rel="noopener">https://exemplo.com/apresentacao</a>
-                                </div>
-
-                                <div class="link-item">
-                                    <span class="link-nome">Link para a apresentação</span>
-                                    <a href="https://exemplo.com/apresentacao" target="_blank" rel="noopener">https://exemplo.com/apresentacao</a>
+                                    <a href="https://www.canva.com/design/DAHVSmmJ5UU/QWMOI0fgqUYhGTGQEqTZZg/edit" target="_blank" rel="noopener">https://www.canva.com/design/DAHVSmmJ5UU/QWMOI0fgqUYhGTGQEqTZZg/edit</a>
                                 </div>
                             </div>
                         </div>
@@ -286,5 +292,6 @@
     <script>
         lucide.createIcons();
     </script>
+    <script src="../scripts/EnterMate.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ function renderizarCards(cronogramas, listaCards) {
     listaCards.innerHTML = ''
 
     if (!cronogramas || cronogramas.length === 0) {
-        listaCards.innerHTML = `<p style="color:#9aa4b2;">Nenhum cronograma encontrado.</p>`
+        listaCards.innerHTML = `<p style="color:#9aa4b2; font-size: 14px; ">Nenhum cronograma encontrado.</p>`
         return
     }
 
