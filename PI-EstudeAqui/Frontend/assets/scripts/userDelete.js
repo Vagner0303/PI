@@ -1,43 +1,63 @@
-// userDelete.js (SEM a linha do baseApi, já que o authGuard.js já declara ela antes)
+// userDelete.js
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    const btnExcluirConta = document.querySelector('.botao-excluir-conta')
+    const btnExcluirConta = document.querySelector(".botao-excluir-conta");
 
     if (btnExcluirConta) {
+        btnExcluirConta.addEventListener("click", async () => {
+            const confirmado = confirm(
+                "Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita."
+            );
 
-        btnExcluirConta.addEventListener('click', async () => {
+            if (!confirmado) return;
 
-            const confirmado = confirm("Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita.")
-            if (!confirmado) return
+            try {
+                // Busca o usuário logado
+                const meRes = await fetch(`${baseApi}/me`, {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include"
+                });
 
-            const meRes = await fetch(`${baseApi}/me`, {
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                credentials: "include"
-            })
+                if (!meRes.ok) {
+                    alert("Erro ao obter os dados do usuário.");
+                    return;
+                }
 
-            const me = await meRes.json()
+                const me = await meRes.json();
 
-            const res = await fetch(`${baseApi}/${me.user.id}`, {
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                method: 'DELETE',
-                credentials: "include"
-            })
+                // Exclui a conta
+                const res = await fetch(`${baseApi}/users/${me.user.id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include"
+                });
 
-            const data = await res.json()
+                if (!res.ok) {
+                    const erro = await res.text();
+                    console.error("Erro:", erro);
+                    alert("Não foi possível excluir a conta.");
+                    return;
+                }
 
-            console.log(data)
+                const data = await res.json();
 
-            if (!data.success) {
-                alert(`Algo deu errado: ${data.message}`)
-            } else {
-                alert(data.message)
-                window.location.href = '../pages/login.html'
+                console.log(data);
+
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = "../pages/login.html";
+                } else {
+                    alert(data.message);
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao conectar com o servidor.");
             }
-        })
+        });
     }
-})
+});
