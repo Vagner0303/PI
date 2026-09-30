@@ -7,7 +7,11 @@ import materiaRoutes from './routes/materiaRoutes'
 import { errorHandler } from './middlewares/errorHandler'
 import cronogramaRoutes from './routes/cronogramaRoutes'
 import desempenhoRoutes from './routes/desempenhoRoutes'
+import linkRoutes from './routes/linkRoutes'
 import { desempenhoService } from './controllers/DesempenhoController'
+import anotacaoRoutes from './routes/anotacaoRoutes'   // junto dos outros imports
+import tarefaRoutes from "./routes/tarefaRoutes";
+
 
 const app: Application = express()
 const PORT = Number(process.env.PORT || '3000')
@@ -30,6 +34,10 @@ app.use('/users', userRoutes)
 app.use(materiaRoutes)
 app.use(cronogramaRoutes)
 app.use(desempenhoRoutes)
+app.use(linkRoutes)
+app.use(linkRoutes)
+app.use(anotacaoRoutes)                                  // logo depois do linkRoutes
+app.use(tarefaRoutes);
 
 // Tratamento de erros (sempre por último)
 app.use(errorHandler)

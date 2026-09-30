@@ -1270,38 +1270,6 @@ button {
     color: #9ca3af;
 }
 
-/* ===== Links ===== */
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.link-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px 16px;
-    background: #F7F9FC;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-}
-
-.link-nome {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.link-item a {
-    font-size: 13.5px;
-    color: #2F6BFF;
-    overflow-wrap: anywhere;
-}
-
-.link-item a:hover {
-    text-decoration: underline;
-}
-
 /* =========================================================
    Modo Dark (mesmo padrão do materias.css)
    ========================================================= */
@@ -1369,15 +1337,6 @@ button {
     background: rgba(255, 47, 47, 0.15);
 }
 
-.dark .link-item {
-    background: #202020;
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-.dark .link-item a {
-    color: #6a8dff;
-}
-
 /* =========================================================
    Responsivo
    ========================================================= */
@@ -1410,3 +1369,278 @@ button {
     }
 }
 
+
+/* ===== Links ===== */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    background: #F7F9FC;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    
+}
+
+.link-item:hover {
+    border-color: #2F6BFF;
+   
+}
+
+.link-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.link-nome {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.link-item a {
+    font-size: 13px;
+    color: #2F6BFF;
+    word-break: break-all;
+}
+
+.link-item a:hover {
+    text-decoration: underline;
+}
+
+.btn-excluir-link {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e5484d;
+    background: transparent;
+    border: 1px solid rgba(229, 72, 77, 0.55);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-excluir-link:hover {
+    color: #fff;
+    background: #e5484d;
+    border-color: #e5484d;
+}
+
+/* ===== Dropdown de adicionar link ===== */
+.dropdown {
+    position: relative;
+    
+}
+
+.dropdown .add-materia {
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-panel {
+    position: absolute;
+    right: 0;
+    left: 150px;
+    top: calc(100% + -36px);
+    width: 340px;
+    max-width: calc(100vw - 32px);
+    padding: 16px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+}
+
+.dropdown-panel[hidden] {
+    display: none;
+}
+
+.dropdown-panel input {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: inherit;
+    background: #F7F9FC;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+   
+}
+
+.dropdown-panel input:focus {
+    border-color: #2F6BFF;
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.25);
+}
+
+.dropdown-panel .add-materia {
+    width: 100%;
+    justify-content: center;
+}
+
+.erro {
+    margin: 0;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: #e5484d;
+    background: rgba(229, 72, 77, 0.1);
+    border-radius: 8px;
+}
+
+/* ===== Links: modo dark ===== */
+.dark .link-item {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .link-item:hover {
+    border-color: #6a8dff;
+}
+
+.dark .link-item a {
+    color: #6a8dff;
+}
+
+
+.dark .btn-excluir-link:hover {
+    color: #fff;
+    background: #f87171;
+    border-color: #f87171;
+}
+
+.dark .dropdown-panel {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.dark .dropdown-panel input {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .dropdown-panel input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dark .dropdown-panel input:focus {
+    border-color: #6a8dff;
+    box-shadow: 0 0 0 3px rgba(106, 141, 255, 0.25);
+}
+
+.dark .erro {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+}
+
+/* ===== Links: mobile ===== */
+@media (max-width: 520px) {
+    .link-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-excluir-link {
+        align-self: flex-end;
+    }
+}
+
+/* ===== Dropdown de adicionar anotação ===== */
+.dropdown-panel.dropdown-nota {
+    left: auto;
+    right: 0;
+    top: calc(100% + 8px);
+    width: 380px;
+}
+
+.dropdown-panel textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 11px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: inherit;
+    background: #F7F9FC;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+}
+
+.dropdown-panel textarea:focus {
+    border-color: #2F6BFF;
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.25);
+}
+
+/* botão excluir dentro da nota */
+.nota .btn-excluir-link {
+    align-self: flex-start;
+    margin-top: 10px;
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+/* dark */
+.dark .dropdown-panel textarea {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .dropdown-panel textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dark .dropdown-panel textarea:focus {
+    border-color: #6a8dff;
+    box-shadow: 0 0 0 3px rgba(106, 141, 255, 0.25);
+}
+
+
+/* ===== Estado vazio ===== */
+.vazio {
+    grid-column: 1 / -1;
+    padding: 32px 16px;
+    color: #6b7280;
+}
+
+.dark .vazio {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ===== Dropdown de nova tarefa ===== */
+.dropdown-panel.dropdown-tarefa {
+    left: auto;
+    right: 0;
+    top: calc(100% + 8px);
+    width: 340px;
+}
+
+.lista-tarefas .vazio {
+    padding: 32px 20px;
+}
+
+/* ===== Dropdown de nova tarefa ===== */
+.dropdown-panel.dropdown-tarefa {
+    left: auto;
+    right: 0;
+    top: calc(100% + 8px);
+    width: 340px;
+}
+
+.lista-tarefas .vazio {
+    padding: 32px 20px;
+}

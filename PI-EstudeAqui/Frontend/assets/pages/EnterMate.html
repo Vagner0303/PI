@@ -113,62 +113,27 @@
                     <section class="painel" id="painel-tarefas">
                         <div class="barra-acoes">
                             <div class="filtros">
-                                <button type="button" class="filtro ativo">Todas (8)</button>
-                                <button type="button" class="filtro">Acertos (8)</button>
-                                <button type="button" class="filtro">Erros (8)</button>
-                            </div>
-                            <a href="#" class="add-materia">
-                                <i data-lucide="plus"></i>
-                                Nova tarefa
-                            </a>
-                        </div>
-
-                        <div class="caixa lista-tarefas">
-                            <!-- Repita este bloco para cada tarefa -->
-                            <div class="tarefa">
-                                <span class="tarefa-titulo">Estudar equação para a prova</span>
-                                <div class="tarefa-acoes">
-                                    <a href="#" class="btn-entrar">Entrar</a>
-                                    <button type="button" class="btn-secundario">
-                                        <i data-lucide="pencil"></i>
-                                        Editar
-                                    </button>
-                                </div>
+                                <button type="button" class="filtro ativo" id="filtro-todas">Todas (0)</button>
+                                <button type="button" class="filtro">Acertos (0)</button>
+                                <button type="button" class="filtro">Erros (0)</button>
                             </div>
 
-                            <div class="tarefa">
-                                <span class="tarefa-titulo">Estudar equação para a prova</span>
-                                <div class="tarefa-acoes">
-                                    <a href="#" class="btn-entrar">Entrar</a>
-                                    <button type="button" class="btn-secundario">
-                                        <i data-lucide="pencil"></i>
-                                        Editar
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="dropdown">
+                                <button type="button" class="add-materia" id="btn-adicionar-tarefa">
+                                    <i data-lucide="plus"></i>
+                                    Nova tarefa
+                                </button>
 
-                            <div class="tarefa">
-                                <span class="tarefa-titulo">Estudar equação para a prova</span>
-                                <div class="tarefa-acoes">
-                                    <a href="#" class="btn-entrar">Entrar</a>
-                                    <button type="button" class="btn-secundario">
-                                        <i data-lucide="pencil"></i>
-                                        Editar
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="tarefa">
-                                <span class="tarefa-titulo">Estudar equação para a prova</span>
-                                <div class="tarefa-acoes">
-                                    <a href="#" class="btn-entrar">Entrar</a>
-                                    <button type="button" class="btn-secundario">
-                                        <i data-lucide="pencil"></i>
-                                        Editar
-                                    </button>
+                                <div id="tarefa-dropdown" class="dropdown-panel dropdown-tarefa" hidden>
+                                    <input id="tarefa-titulo" type="text" placeholder="Nome da tarefa" maxlength="150" />
+                                    <p id="tarefa-erro" class="erro" hidden></p>
+                                    <button type="button" class="add-materia" id="btn-salvar-tarefa">Gerar tarefa</button>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- as tarefas são desenhadas pelo EnterMate.js -->
+                        <div class="caixa lista-tarefas" id="lista-tarefas"></div>
                     </section>
 
                     <!-- ========== ANOTAÇÕES ========== -->
@@ -176,74 +141,23 @@
                         <div class="caixa caixa-conteudo">
                             <div class="caixa-topo">
                                 <h2>Suas anotações</h2>
-                                <a href="#" class="add-materia">
-                                    <i data-lucide="plus"></i>
-                                    Adicionar anotação
-                                </a>
+
+                                <div class="dropdown">
+                                    <button type="button" class="add-materia" id="btn-adicionar-nota">
+                                        <i data-lucide="plus"></i>
+                                        Adicionar anotação
+                                    </button>
+
+                                    <div id="nota-dropdown" class="dropdown-panel dropdown-nota" hidden>
+                                        <input id="nota-titulo" type="text" placeholder="Título da anotação" maxlength="150" />
+                                        <textarea id="nota-texto" placeholder="Escreva sua anotação..." rows="6"></textarea>
+                                        <p id="nota-erro" class="erro" hidden></p>
+                                        <button type="button" class="add-materia" id="btn-salvar-nota">Salvar</button>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="notas">
-                                <!-- Repita este <article> para cada anotação -->
-                                <article class="nota">
-                                    <header class="nota-topo">
-                                        <span class="nota-icone"><i data-lucide="sigma"></i></span>
-                                        <h3>Fórmulas importantes</h3>
-                                    </header>
-                                    <div class="nota-texto">
-                                        <p>Fórmula Δ = b² − 4ac</p>
-                                        <p>Δ &gt; 0: a equação tem duas respostas reais e diferentes.</p>
-                                        <p>Δ = 0: a equação tem duas respostas reais e iguais.</p>
-                                        <p>Δ &lt; 0: a equação não tem respostas reais.</p>
-                                    </div>
-                                    <time class="nota-data">Hoje às 14:05</time>
-                                    <button type="button" class="btn-excluir">Excluir</button>
-                                </article>
-
-                                <article class="nota">
-                                    <header class="nota-topo">
-                                        <span class="nota-icone"><i data-lucide="sigma"></i></span>
-                                        <h3>Fórmulas importantes</h3>
-                                    </header>
-                                    <div class="nota-texto">
-                                        <p>Fórmula Δ = b² − 4ac</p>
-                                        <p>Δ &gt; 0: a equação tem duas respostas reais e diferentes.</p>
-                                        <p>Δ = 0: a equação tem duas respostas reais e iguais.</p>
-                                        <p>Δ &lt; 0: a equação não tem respostas reais.</p>
-                                    </div>
-                                    <time class="nota-data">Hoje às 14:05</time>
-                                    <button type="button" class="btn-excluir">Excluir</button>
-                                </article>
-
-                                <article class="nota">
-                                    <header class="nota-topo">
-                                        <span class="nota-icone"><i data-lucide="sigma"></i></span>
-                                        <h3>Fórmulas importantes</h3>
-                                    </header>
-                                    <div class="nota-texto">
-                                        <p>Fórmula Δ = b² − 4ac</p>
-                                        <p>Δ &gt; 0: a equação tem duas respostas reais e diferentes.</p>
-                                        <p>Δ = 0: a equação tem duas respostas reais e iguais.</p>
-                                        <p>Δ &lt; 0: a equação não tem respostas reais.</p>
-                                    </div>
-                                    <time class="nota-data">Hoje às 14:05</time>
-                                    <button type="button" class="btn-excluir">Excluir</button>
-                                </article>
-
-                                <article class="nota">
-                                    <header class="nota-topo">
-                                        <span class="nota-icone"><i data-lucide="sigma"></i></span>
-                                        <h3>Fórmulas importantes</h3>
-                                    </header>
-                                    <div class="nota-texto">
-                                        <p>Fórmula Δ = b² − 4ac</p>
-                                        <p>Δ &gt; 0: a equação tem duas respostas reais e diferentes.</p>
-                                        <p>Δ = 0: a equação tem duas respostas reais e iguais.</p>
-                                        <p>Δ &lt; 0: a equação não tem respostas reais.</p>
-                                    </div>
-                                    <time class="nota-data">Hoje às 14:05</time>
-                                    <button type="button" class="btn-excluir">Excluir</button>
-                                </article>
-                            </div>
+                            <div class="notas" id="lista-notas"></div>
                         </div>
                     </section>
 
@@ -252,34 +166,23 @@
                         <div class="caixa caixa-conteudo">
                             <div class="caixa-topo">
                                 <h2>Seus links</h2>
-                                <a href="#" class="add-materia">
-                                    <i data-lucide="plus"></i>
-                                    Adicionar link
-                                </a>
-                            </div>
 
-                            <div class="links">
-                                <!-- Repita este bloco para cada link -->
-                                <div class="link-item">
-                                      <span class="link-nome">Link Figma</span>
-                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
-                                </div>
+                                <div class="dropdown">
+                                    <button type="button" class="add-materia" id="btn-adicionar-link">
+                                        <i data-lucide="plus"></i>
+                                        Adicionar link
+                                    </button>
 
-                                <div class="link-item">
-                                    <span class="link-nome">Link Figma</span>
-                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
-                                </div>
-
-                                <div class="link-item">
-                                      <span class="link-nome">Link Figma</span>
-                                    <a href="https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0" target="_blank" rel="noopener">https://www.figma.com/design/g6l4Eqd9dMoqdGwGiN07yr/PI-Aplicativos-de-estudos?node-id=0-1&p=f&t=JWsKbsAPQVZQ6dks-0</a>
-                                </div>
-
-                                <div class="link-item">
-                                    <span class="link-nome">Link para a apresentação</span>
-                                    <a href="https://www.canva.com/design/DAHVSmmJ5UU/QWMOI0fgqUYhGTGQEqTZZg/edit" target="_blank" rel="noopener">https://www.canva.com/design/DAHVSmmJ5UU/QWMOI0fgqUYhGTGQEqTZZg/edit</a>
+                                    <div id="link-dropdown" class="dropdown-panel" hidden>
+                                        <input id="link-nome" type="text" placeholder="Nome (ex: Link para a apresentação)" maxlength="100" />
+                                        <input id="link-url" type="url" placeholder="https://..." />
+                                        <p id="link-erro" class="erro" hidden></p>
+                                        <button type="button" class="add-materia" id="btn-salvar-link">Salvar</button>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="links" id="lista-links"></div>
                         </div>
                     </section>
 
