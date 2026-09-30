@@ -161,10 +161,6 @@ function renderizarMaterias(materias) {
                 <i data-lucide="ellipsis-vertical"></i>
 
                 <div class="menu-ponto">
-                    <button class="item-menu editar" type="button">
-                        <i data-lucide="pencil"></i>
-                        Editar
-                    </button>
                     <button class="item-menu excluir" type="button">
                         <i data-lucide="trash-2"></i>
                         Excluir

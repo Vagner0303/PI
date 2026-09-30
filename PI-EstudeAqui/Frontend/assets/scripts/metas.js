@@ -171,20 +171,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i data-lucide="ellipsis-vertical"></i>
                         <div class="menu-ponto">
                             <button class="item-menu" type="button">
-                                <i data-lucide="pencil"></i>
-                                Editar
+                                
+                                Concluir
                             </button>
                             <button class="item-menu excluir" type="button">
-                                <i data-lucide="trash-2"></i>
+                               
                                 Excluir
                             </button>
                             <button class="item-menu iniciar" type="button">
-                                <i data-lucide="astroid"></i>
+                               
                                 Iniciar
                             </button>
                             <button class="item-menu principal" type="button">
-                                <i data-lucide="trophy"></i>
-                                Marcar como principal
+                               
+                                Marcar principal
                             </button>
                         </div>
                     </div>
