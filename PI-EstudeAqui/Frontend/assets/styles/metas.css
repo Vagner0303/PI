@@ -1217,3 +1217,73 @@ button {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
 }
+
+/* ===== Metas principais (até 3) ===== */
+.lista-principais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.item-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid rgba(16, 26, 46, 0.08);
+    border-radius: 9px;
+}
+
+.item-principal-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.item-principal-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* o menu dos cards abre para a esquerda, pra não vazar da tela */
+.item-principal .menu-ponto {
+    left: auto;
+    right: 0;
+    top: calc(100% + 4px);
+}
+
+.vazio-metas {
+    font-size: 13.5px;
+    color: #6b7280;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.dark .item-principal {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .vazio-metas {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Card "Metas em andamento" mais alto quando vazio */
+.cards-final.vazio {
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-final.vazio .tabela-metas {
+    width: 100%;
+}
+
+/* Frase de "sem metas principais" ocupa a largura toda do card */
+.lista-principais .vazio-metas {
+    grid-column: 1 / -1;
+}

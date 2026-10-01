@@ -15,6 +15,8 @@
     <script src="../scripts/ProtejePages.js"></script>
     <script src="../scripts/userDelete.js"></script>
     <script src="../scripts/Logoff.js"></script>
+    <!-- NOVO: função aplicarAvatar() e URL da API -->
+    <script src="../scripts/avatar.js"></script>
 
 </head>
 <body>
@@ -98,14 +100,21 @@
                             </div>
 
                             <div class="config-card-corpo">
+                                <!-- ALTERADO: input aceita só PNG/JPG e foi adicionado o botão "Remover foto" -->
                                 <div class="perfil-avatar">
                                     <div class="avatar2"></div>
                                     <div>
-                                        <input type="file" id="avatar-input" accept="image/*" hidden>
-                                        <button class="botao-secundario botao-selecionar-foto" type="button">
-                                            <i data-lucide="camera"></i>
-                                            Alterar foto
-                                        </button>
+                                        <input type="file" id="avatar-input" accept="image/png, image/jpeg" hidden>
+                                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                                            <button class="botao-secundario botao-selecionar-foto" type="button">
+                                                <i data-lucide="camera"></i>
+                                                Alterar foto
+                                            </button>
+                                            <button class="botao-perigo botao-remover-foto" type="button">
+                                                <i data-lucide="trash-2"></i>
+                                                Remover foto
+                                            </button>
+                                        </div>
                                         <p class="texto-ajuda">PNG ou JPG. Tamanho máximo de 2MB.</p>
                                     </div>
                                 </div>
@@ -309,6 +318,9 @@
         lucide.createIcons();
     </script>
     <script src="../scripts/config.js"></script>
+    <!-- NOVO: upload/remoção da foto de perfil (separado do config.js de tema) -->
+    <script src="../scripts/Perfilavatar.js"></script>
+    <!-- Este deve ficar por último: ele busca o usuário e deve chamar aplicarAvatar(usuario.avatar_url) -->
     <script src="../scripts/atualizarUsuario.js"></script>
 </body>
 </html>

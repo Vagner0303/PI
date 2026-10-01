@@ -9,6 +9,33 @@ export class UserController {
 
     private readonly service: UserService = new UserService()
 
+    async atualizarAvatar(req: Request, res: Response) {
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: 'Nenhum arquivo enviado.'
+            })
+        }
+
+        const avatarUrl = await this.service.atualizarAvatar(req.user.id, req.file.filename)
+
+        return res.status(200).json({
+            success: true,
+            message: 'Foto de perfil atualizada com sucesso',
+            avatar_url: avatarUrl
+        })
+    }
+
+    async removerAvatar(req: Request, res: Response) {
+        await this.service.removerAvatar(req.user.id)
+
+        return res.status(200).json({
+            success: true,
+            message: 'Foto de perfil removida com sucesso',
+            avatar_url: null
+        })
+    }
+
     async findAllUser(req: Request, res: Response) {
         const users = await this.service.findAll()
 

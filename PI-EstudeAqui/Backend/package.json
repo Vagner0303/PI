@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Antes de começar, instale em sua máquina:",
   "main": "index.js",
- "scripts": {
-  "dev": "ts-node src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:generate": "npm run typeorm -- migration:generate src/migrations/Migration -d src/config/dataSource.ts",
     "migration:run": "npm run typeorm -- migration:run -d src/config/dataSource.ts",
@@ -21,6 +21,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
     "mysql2": "^3.24.4",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^1.1.1",
@@ -32,6 +33,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.3.0",
     "@types/node": "^26.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

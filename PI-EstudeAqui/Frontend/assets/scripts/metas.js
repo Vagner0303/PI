@@ -1,258 +1,285 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const corpoTabela = document.querySelector('.tabela-metas tbody');
+(() => {
+    const baseApi = 'http://localhost:3000';
 
-    const dropdownAdicionar = document.querySelector('.dropdown-add-meta');
-    const botaoAdicionar = document.getElementById('botao-adicionar-meta');
-    const painelAdicionar = document.getElementById('painel-add-meta');
-    const campoTitulo = document.getElementById('nova-meta-titulo');
-    const campoTipo = document.getElementById('nova-meta-tipo');
-    const campoPrazo = document.getElementById('nova-meta-prazo');
-    const botaoCancelar = document.getElementById('cancelar-add-meta');
-    const botaoConfirmar = document.getElementById('confirmar-add-meta');
+    const corpoTabela = document.getElementById('corpo-metas');
+    const listaPrincipais = document.getElementById('lista-principais');
+    const statAndamento = document.getElementById('stat-andamento');
+    const statPrincipais = document.getElementById('stat-principais');
 
-    const paletaCores = ['#2F6BFF', '#16A34A', '#F59E0B', '#7C3AED', '#DC2626'];
-    let indiceCor = 0;
+    const MAX_PRINCIPAIS = 3;
+    const cores = ['#2F6BFF', '#16A34A', '#F59E0B', '#7C3AED', '#DC2626'];
+    const rotuloTipo = { diaria: 'Meta diária', semanal: 'Meta semanal', mensal: 'Meta mensal' };
+    const iconeTipo = { diaria: 'sun', semanal: 'calendar-days', mensal: 'calendar-range' };
 
-    function fecharTodosDropdownPonto(exceto) {
-        document.querySelectorAll('.dropdown-ponto').forEach(dropdown => {
-            if (dropdown !== exceto) dropdown.classList.remove('aberto');
+    let metas = [];
+
+    /* ---------- utilidades ---------- */
+    function esc(texto) {
+        const div = document.createElement('div');
+        div.textContent = texto ?? '';
+        return div.innerHTML;
+    }
+
+    // Dias entre hoje e o prazo (YYYY-MM-DD). Negativo = vencido.
+    function diasRestantes(prazo) {
+        if (!prazo) return null;
+        const [ano, mes, dia] = String(prazo).slice(0, 10).split('-').map(Number);
+        const fim = new Date(ano, mes - 1, dia);
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+        return Math.round((fim - hoje) / 86400000);
+    }
+
+    function textoPrazo(meta) {
+        if (meta.status !== 'em_andamento') return '';
+        const d = diasRestantes(meta.prazo);
+        if (d === null) return 'Sem prazo';
+        if (d > 1) return `Termina em ${d} dias`;
+        if (d === 1) return 'Termina amanhã';
+        if (d === 0) return 'Termina hoje';
+        return `Prazo vencido há ${Math.abs(d)} dia${Math.abs(d) > 1 ? 's' : ''}`;
+    }
+
+    /* ---------- API ---------- */
+    async function chamar(caminho, metodo = 'GET', corpo) {
+        const resposta = await fetch(`${baseApi}${caminho}`, {
+            method: metodo,
+            credentials: 'include',
+            headers: corpo ? { 'Content-Type': 'application/json' } : undefined,
+            body: corpo ? JSON.stringify(corpo) : undefined,
         });
-    }
-
-    function fecharPainelAdicionar() {
-        if (dropdownAdicionar) dropdownAdicionar.classList.remove('aberto');
-    }
-
-    // Fecha qualquer outro menu/painel aberto, exceto o elemento passado
-    function fecharTudo(exceto) {
-        fecharTodosDropdownPonto(exceto);
-        if (exceto !== dropdownAdicionar) fecharPainelAdicionar();
-    }
-
-    function limparFormularioAdicionar() {
-        if (campoTitulo) campoTitulo.value = '';
-        if (campoPrazo) campoPrazo.value = '';
-        if (campoTipo) campoTipo.value = 'Meta semanal';
-    }
-
-    // Atualiza o card "Objetivo Principal" com os dados da meta escolhida
-    function marcarComoMetaPrincipal(linha) {
-        const titulo = linha.querySelector('.titulo-linha-meta')?.textContent.trim() || '';
-        const tipo = linha.querySelector('.descrito-sub')?.textContent.trim() || '';
-
-        const tituloObgp = document.querySelector('.titulo-obgp');
-        const subtituloObgp = document.querySelector('.subtitulo-obgp');
-
-        if (tituloObgp) tituloObgp.textContent = titulo;
-        if (subtituloObgp) subtituloObgp.textContent = tipo;
-    }
-
-    // Liga o clique dos 3 pontinhos + Editar/Excluir/Iniciar/Principal de UM dropdown
-    function inicializarDropdownPonto(dropdown) {
-        const menu = dropdown.querySelector('.menu-ponto');
-        const gatilho = dropdown.firstElementChild; // sempre o ícone dos 3 pontinhos
-        if (!gatilho || !menu) return;
-
-        gatilho.addEventListener('click', (evento) => {
-            evento.stopPropagation();
-            const estaAberto = dropdown.classList.contains('aberto');
-            fecharTudo(dropdown);
-            dropdown.classList.toggle('aberto', !estaAberto);
-        });
-
-        const botaoEditar = menu.querySelector('.item-menu:not(.excluir):not(.iniciar):not(.principal)');
-        const botaoExcluir = menu.querySelector('.item-menu.excluir');
-        const botaoIniciar = menu.querySelector('.item-menu.iniciar');
-        const botaoPrincipal = menu.querySelector('.item-menu.principal');
-
-        if (botaoEditar) {
-            botaoEditar.addEventListener('click', () => {
-                dropdown.classList.remove('aberto');
-                const linha = dropdown.closest('tr');
-                // TODO: abrir aqui o formulário/modal de edição da meta
-                console.log('Editar meta da linha:', linha);
-            });
+        if (!resposta.ok) {
+            let mensagem = 'Algo deu errado.';
+            try { mensagem = (await resposta.json()).message || mensagem; } catch {}
+            throw new Error(mensagem);
         }
+        return resposta.status === 204 ? null : resposta.json();
+    }
 
-        if (botaoExcluir) {
-            botaoExcluir.addEventListener('click', () => {
-                dropdown.classList.remove('aberto');
-                const linha = dropdown.closest('tr');
-                if (linha && confirm('Tem certeza que deseja excluir esta meta?')) {
-                    linha.remove();
-                }
-            });
+    async function carregar() {
+        try {
+            metas = await chamar('/metas');
+        } catch (erro) {
+            console.error('Erro ao carregar metas:', erro);
+            metas = [];
         }
-
-        if (botaoIniciar) {
-            botaoIniciar.addEventListener('click', () => {
-                dropdown.classList.remove('aberto');
-                const linha = dropdown.closest('tr');
-                if (!linha) return;
-                const status = linha.querySelector('.status-badge');
-                if (status) {
-                    status.textContent = 'Em andamento';
-                    status.classList.remove('status-naoiniciada');
-                    status.classList.add('status-andamento');
-                }
-            });
-        }
-
-        if (botaoPrincipal) {
-            botaoPrincipal.addEventListener('click', () => {
-                dropdown.classList.remove('aberto');
-                const linha = dropdown.closest('tr');
-                if (!linha) return;
-                marcarComoMetaPrincipal(linha);
-            });
-        }
+        renderizar();
     }
 
-    // Liga os menus de 3 pontinhos que já existem na página ao carregar
-    document.querySelectorAll('.dropdown-ponto').forEach(inicializarDropdownPonto);
-
-    // Abre/fecha o painel de "Adicionar meta"
-    if (botaoAdicionar && dropdownAdicionar) {
-        botaoAdicionar.addEventListener('click', (evento) => {
-            evento.stopPropagation();
-            const estaAberto = dropdownAdicionar.classList.contains('aberto');
-            fecharTudo(dropdownAdicionar);
-            dropdownAdicionar.classList.toggle('aberto', !estaAberto);
-            if (!estaAberto && campoTitulo) campoTitulo.focus();
-        });
+    /* ---------- render ---------- */
+    function menuHTML(meta) {
+        return `
+            <div class="dropdown-ponto">
+                <i data-lucide="ellipsis-vertical"></i>
+                <div class="menu-ponto">
+                    ${meta.status === 'nao_iniciada'
+                        ? `<button class="item-menu iniciar" type="button" data-acao="iniciar" data-id="${meta.id}">Iniciar</button>`
+                        : ''}
+                    <button class="item-menu" type="button" data-acao="concluir" data-id="${meta.id}">Concluir</button>
+                    <button class="item-menu principal" type="button" data-acao="principal" data-id="${meta.id}">
+                        ${meta.principal ? 'Remover principal' : 'Marcar principal'}
+                    </button>
+                    <button class="item-menu excluir" type="button" data-acao="excluir" data-id="${meta.id}">Excluir</button>
+                </div>
+            </div>`;
     }
 
-    // Clicar dentro do painel não deve fechar ele (o listener global fecha ao clicar fora)
-    if (painelAdicionar) {
-        painelAdicionar.addEventListener('click', (evento) => evento.stopPropagation());
+    function badgeHTML(meta) {
+        return meta.status === 'em_andamento'
+            ? '<span class="status-badge status-andamento">Em andamento</span>'
+            : '<span class="status-badge status-naoiniciada">Não iniciada</span>';
     }
 
-    if (botaoCancelar) {
-        botaoCancelar.addEventListener('click', () => {
-            limparFormularioAdicionar();
-            fecharPainelAdicionar();
-        });
-    }
-
-    if (botaoConfirmar && corpoTabela) {
-        botaoConfirmar.addEventListener('click', () => {
-            const titulo = campoTitulo ? campoTitulo.value.trim() : '';
-            if (!titulo) {
-                if (campoTitulo) campoTitulo.focus();
-                return;
-            }
-
-            const tipo = campoTipo ? campoTipo.value : 'Meta semanal';
-            const prazo = campoPrazo ? campoPrazo.value.trim() : '';
-            const cor = paletaCores[indiceCor % paletaCores.length];
-            indiceCor++;
-
-            const linha = document.createElement('tr');
-            linha.innerHTML = `
-                <td
+    function linhaHTML(meta, indice) {
+        const cor = cores[indice % cores.length];
+        const prazo = textoPrazo(meta);
+        return `
+            <tr>
+                <td>
                     <div class="descricao-meta">
                         <span class="icone-meta" style="background:${cor};">
-                            <i data-lucide="target"></i>
+                            <i data-lucide="${iconeTipo[meta.tipo] || 'target'}"></i>
                         </span>
                         <div>
-                            <p class="titulo-linha-meta"></p>
-                            <p class="descrito-sub"></p>
+                            <p class="titulo-linha-meta">${esc(meta.titulo)}</p>
+                            <p class="descrito-sub">${rotuloTipo[meta.tipo] || ''}</p>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="data-meta">
-                        ${prazo ? '<i data-lucide="calendar"></i>' : ''}
+                        ${prazo ? `<i data-lucide="calendar"></i> ${prazo}` : ''}
                     </div>
                 </td>
-                <td><span class="status-badge status-naoiniciada">Não iniciada</span></td>
-                <td>
-                    <div class="dropdown-ponto">
-                        <i data-lucide="ellipsis-vertical"></i>
-                        <div class="menu-ponto">
-                            <button class="item-menu" type="button">
-                                
-                                Concluir
-                            </button>
-                            <button class="item-menu excluir" type="button">
-                               
-                                Excluir
-                            </button>
-                            <button class="item-menu iniciar" type="button">
-                               
-                                Iniciar
-                            </button>
-                            <button class="item-menu principal" type="button">
-                               
-                                Marcar principal
-                            </button>
-                        </div>
-                    </div>
-                </td>
-            `;
+                <td>${badgeHTML(meta)}</td>
+                <td>${menuHTML(meta)}</td>
+            </tr>`;
+    }
 
-            // Título e tipo entram via textContent (evita problemas com HTML digitado pelo usuário)
-            linha.querySelector('.titulo-linha-meta').textContent = titulo;
-            linha.querySelector('.descrito-sub').textContent = tipo;
-            if (prazo) {
-                linha.querySelector('.data-meta').append(' ' + prazo);
+    function principalHTML(meta) {
+        const d = diasRestantes(meta.prazo);
+        let faltam = '';
+        if (meta.status === 'em_andamento') {
+            if (d === null) faltam = '<p class="dias-sub">Sem prazo</p>';
+            else if (d >= 0) faltam = `<p>Faltam</p><p class="dias-numero">${d} <span>${d === 1 ? 'dia' : 'dias'}</span></p>`;
+            else faltam = `<p>Vencida há</p><p class="dias-numero">${Math.abs(d)} <span>dias</span></p>`;
+        }
+        return `
+            <div class="item-principal">
+                <div class="item-principal-topo">
+                    <div>
+                        <p class="titulo-obgp">${esc(meta.titulo)}</p>
+                        <p class="subtitulo-obgp">${rotuloTipo[meta.tipo] || ''}</p>
+                    </div>
+                    ${menuHTML(meta)}
+                </div>
+                <div class="item-principal-rodape">
+                    ${badgeHTML(meta)}
+                    <div class="dias-faltam-texto">${faltam}</div>
+                </div>
+            </div>`;
+    }
+
+    function renderizar() {
+        const principais = metas.filter(m => m.principal);
+        const demais = metas.filter(m => !m.principal);
+
+        if (listaPrincipais) {
+            listaPrincipais.innerHTML = principais.length
+                ? principais.map(principalHTML).join('')
+                : '<p class="vazio-metas">Nenhuma meta principal ainda.</p>';
+        }
+
+        if (corpoTabela) {
+            corpoTabela.innerHTML = demais.length
+                ? demais.map(linhaHTML).join('')
+                : '<tr><td colspan="4" class="vazio-metas">Nenhuma meta por aqui.</td></tr>';
+        }
+
+        const cardTabela = corpoTabela ? corpoTabela.closest('.cards-final') : null;
+        if (cardTabela) cardTabela.classList.toggle('vazio', demais.length === 0);
+
+        if (statAndamento) statAndamento.textContent = metas.filter(m => m.status === 'em_andamento').length;
+        if (statPrincipais) statPrincipais.textContent = principais.length;
+
+        if (window.lucide) window.lucide.createIcons();
+    }
+
+    /* ---------- modal "Nova meta" ---------- */
+    const overlay = document.querySelector('.cronograma-container');
+    const modalNovaMeta = document.getElementById('modal-nova-meta');
+    const campoTitulo = document.getElementById('meta-titulo');
+    const campoTipo = document.getElementById('meta-tipo');
+    const campoPrazo = document.getElementById('meta-prazo');
+    const botaoAdicionar = document.getElementById('botao-adicionar-meta');
+    const botaoConfirmar = document.getElementById('modal-confirmar-meta');
+
+    function abrirModalMeta() {
+        if (!modalNovaMeta) return;
+        if (campoPrazo) campoPrazo.min = new Date().toLocaleDateString('en-CA'); // hoje (YYYY-MM-DD)
+        modalNovaMeta.classList.add('open');
+        if (campoTitulo) campoTitulo.focus();
+    }
+
+    function fecharModalMeta() {
+        if (modalNovaMeta) modalNovaMeta.classList.remove('open');
+    }
+
+    // Esses listeners são ligados ANTES de qualquer coisa que possa falhar
+    if (botaoAdicionar) botaoAdicionar.addEventListener('click', abrirModalMeta);
+
+    if (modalNovaMeta) {
+        const btnFechar = modalNovaMeta.querySelector('.fechar-btn');
+        if (btnFechar) btnFechar.addEventListener('click', fecharModalMeta);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) fecharModalMeta(); });
+    }
+
+    if (botaoConfirmar) {
+        botaoConfirmar.addEventListener('click', async () => {
+            const titulo = campoTitulo.value.trim();
+            if (!titulo) { campoTitulo.focus(); return; }
+
+            try {
+                await chamar('/metas', 'POST', {
+                    titulo,
+                    tipo: campoTipo.value,
+                    prazo: campoPrazo.value || null,
+                });
+                campoTitulo.value = '';
+                campoPrazo.value = '';
+                campoTipo.value = 'semanal';
+                fecharModalMeta();
+                await carregar();
+            } catch (erro) {
+                alert(erro.message);
             }
-
-            corpoTabela.appendChild(linha);
-
-            if (window.lucide) window.lucide.createIcons();
-
-            inicializarDropdownPonto(linha.querySelector('.dropdown-ponto'));
-
-            limparFormularioAdicionar();
-            fecharPainelAdicionar();
         });
     }
 
-    // Fecha qualquer menu/painel aberto ao clicar fora ou apertar Esc
-    document.addEventListener('click', () => fecharTudo(null));
-    document.addEventListener('keydown', (evento) => {
-        if (evento.key === 'Escape') fecharTudo(null);
-    });
-});
-
-
-/* ===== Modal "Nova meta" (mesmo padrão do modal de matérias) ===== */
-const modalNovaMeta = document.querySelector("#modal-nova-meta");
-const fecharModalMetaBtn = modalNovaMeta.querySelector(".fechar-btn");
-const botaoAdicionarMetaOriginal = document.getElementById("botao-adicionar-meta");
-
-function abrirModalMeta() {
-    modalNovaMeta.classList.add("open");
-}
-
-function fecharModalMeta() {
-    modalNovaMeta.classList.remove("open");
-}
-
-// Intercepta o clique no botão "Adicionar meta" ANTES do código acima agir,
-// pra abrir o modal novo em vez do painel pequeno antigo.
-document.addEventListener("click", function (event) {
-    if (botaoAdicionarMetaOriginal && botaoAdicionarMetaOriginal.contains(event.target)) {
-        event.preventDefault();
-        event.stopPropagation();
-        abrirModalMeta();
+    /* ---------- menu de 3 pontinhos + ações (delegação de eventos) ---------- */
+    function fecharMenus(exceto) {
+        document.querySelectorAll('.dropdown-ponto.aberto').forEach(d => {
+            if (d !== exceto) d.classList.remove('aberto');
+        });
     }
-}, true); // true = fase de captura, roda antes do listener de dentro do DOMContentLoaded
 
-if (fecharModalMetaBtn) {
-    fecharModalMetaBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        fecharModalMeta();
+    document.addEventListener('click', async (evento) => {
+        const botao = evento.target.closest('[data-acao]');
+        const gatilho = evento.target.closest('.dropdown-ponto > :first-child');
+
+        // abrir/fechar o menu
+        if (gatilho) {
+            const dropdown = gatilho.parentElement;
+            const estavaAberto = dropdown.classList.contains('aberto');
+            fecharMenus(dropdown);
+            dropdown.classList.toggle('aberto', !estavaAberto);
+            return;
+        }
+
+        // ação de um item do menu
+        if (botao) {
+            const id = Number(botao.dataset.id);
+            const meta = metas.find(m => m.id === id);
+            fecharMenus(null);
+            if (!meta) return;
+
+            try {
+                switch (botao.dataset.acao) {
+                    case 'iniciar':
+                        await chamar(`/metas/${id}/iniciar`, 'PATCH');
+                        break;
+                    case 'concluir':
+                        await chamar(`/metas/${id}/concluir`, 'PATCH');
+                        break;
+                    case 'principal':
+                        if (!meta.principal && metas.filter(m => m.principal).length >= MAX_PRINCIPAIS) {
+                            alert(`Você já tem ${MAX_PRINCIPAIS} metas principais. Remova uma para marcar outra.`);
+                            return;
+                        }
+                        await chamar(`/metas/${id}/principal`, 'PATCH', { principal: !meta.principal });
+                        break;
+                    case 'excluir':
+                        if (!confirm('Tem certeza que deseja excluir esta meta?')) return;
+                        await chamar(`/metas/${id}`, 'DELETE');
+                        break;
+                }
+                await carregar();
+            } catch (erro) {
+                alert(erro.message);
+            }
+            return;
+        }
+
+        fecharMenus(null); // clique fora
     });
-}
 
-document.addEventListener("click", function (event) {
-    if (modalNovaMeta.classList.contains("open") && !modalNovaMeta.contains(event.target)) {
-        fecharModalMeta();
-    }
-});
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { fecharMenus(null); fecharModalMeta(); }
+    });
 
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") fecharModalMeta();
-});
+    console.log('metas.js carregado');
+    carregar();
+})();

@@ -84,36 +84,14 @@
                     </div>
                 </div>
 
-                <!-- Objetivo principal -->
+                <!-- Objetivo principal (até 3 metas, preenchido pelo metas.js) -->
                 <div class="Meta-pricipal">
                     <div class="card-metaprincipal">
                         <div class="titulo-mp">
                             <i data-lucide="trophy"></i>  
                             <p>Objetivo Principal</p>
                         </div>
-                        <div class="conteudo-obgp">
-                            <div class="imagem-obgp">
-                                <img src="../img/objetivoPrincipal.png" alt="OBGP">
-                            </div>
-
-                            <div class="descricao-obgp">
-                                <div class="titulo-obgp-linha">
-                                    <p class="titulo-obgp">Passar no ENEM 2026</p>
-                                   
-                                </div>
-                                <p class="subtitulo-obgp">Seu objetivo principal</p>
-                                <p class="texto-obgp">Foco, disciplina e consistência te levam mais longe do que motivação.</p>
-                            </div>
-
-                            <div class="dias-faltam">
-                                <i data-lucide="calendar"></i>  
-                                <div class="dias-faltam-texto">
-                                    <p>Faltam</p>
-                                    <p class="dias-numero">94 <span>dias</span></p>
-                                   
-                                </div>
-                            </div>
-                        </div>
+                        <div class="lista-principais" id="lista-principais"></div>
                     </div>
                 </div>
 
@@ -126,7 +104,7 @@
                         </div>
                         <div class="stat-texto">
                             <div class="stat-topo">
-                                <span class="valor">5</span>
+                                <span class="valor" id="stat-andamento">0</span>
                                 <span class="stat-titulo">Metas em andamento</span>
                             </div>
                             <span class="stat-subtitulo">Siga firme, você está no caminho!</span>
@@ -139,234 +117,19 @@
                         </div>
                         <div class="stat-texto">
                             <div class="stat-topo">
-                                <span class="valor">3</span>
-                                <span class="stat-titulo">Objetivo principal</span>
+                                <span class="valor" id="stat-principais">0</span>
+                                <span class="stat-titulo">Metas principais</span>
                             </div>
                             <span class="stat-subtitulo">Continue avançando em direção ao seu sonho!</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Metas em andamento -->
+                <!-- Metas em andamento (linhas geradas pelo metas.js) -->
                 <p class="titulo-secao">Metas em andamento</p>
                 <div class="cards-final">
                     <table class="tabela-metas">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="descricao-meta">
-                                        <span class="icone-meta" style="background:#2F6BFF;">
-                                            <i data-lucide="clock"></i>
-                                        </span>
-                                        <div>
-                                            <p class="titulo-linha-meta">Estudar 10h por semana</p>
-                                            <p class="descrito-sub">Meta semanal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="data-meta">
-                                        <i data-lucide="calendar"></i>
-                                        Termina em 2 dias
-                                    </div>
-                                </td>
-                                <td><span class="status-badge status-andamento">Em andamento</span></td>
-                                <td>
-                                    <div class="dropdown-ponto">
-                                        <i data-lucide="ellipsis-vertical"></i>
-
-                                        <div class="menu-ponto">
-                                            <button class="item-menu" type="button">
-                                                
-                                                Concluir
-                                            </button>
-                                            <button class="item-menu excluir" type="button">
-                                                
-                                                Excluir
-                                            </button>
-                                            <button class="item-menu iniciar" type="button">
-                                                
-                                                Iniciar
-                                            </button>
-                                            <button class="item-menu principal" type="button">
-                                               
-                                                Marcar principal
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="descricao-meta">
-                                        <span class="icone-meta" style="background:#16A34A;">
-                                            <i data-lucide="list-checks"></i>
-                                        </span>
-                                        <div>
-                                            <p class="titulo-linha-meta">Concluir 15 atividades</p>
-                                            <p class="descrito-sub">Meta semanal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="data-meta">
-                                        <i data-lucide="calendar"></i>
-                                        Termina em 2 dias
-                                    </div>
-                                </td>
-                                <td><span class="status-badge status-andamento">Em andamento</span></td>
-                                <td>
-                                    <div class="dropdown-ponto">
-                                        <i data-lucide="ellipsis-vertical"></i>
-
-                                        <div class="menu-ponto">
-                                            <button class="item-menu" type="button">
-                                                
-                                                Concluir
-                                            </button>
-                                            <button class="item-menu excluir" type="button">
-                                                
-                                                Excluir
-                                            </button>
-                                            <button class="item-menu iniciar" type="button">
-                                                
-                                                Iniciar
-                                            </button>
-                                            <button class="item-menu principal" type="button">
-                                               
-                                                Marcar principal
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="descricao-meta">
-                                        <span class="icone-meta" style="background:#F59E0B;">
-                                            <i data-lucide="pen-line"></i>
-                                        </span>
-                                        <div>
-                                            <p class="titulo-linha-meta">Fazer 2 redações por semana</p>
-                                            <p class="descrito-sub">Meta semanal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="data-meta">
-                                        <i data-lucide="calendar"></i>
-                                        Termina em 2 dias
-                                    </div>
-                                </td>
-                                <td><span class="status-badge status-andamento">Em andamento</span></td>
-                                <td>
-                                    <div class="dropdown-ponto">
-                                        <i data-lucide="ellipsis-vertical"></i>
-
-                                        <div class="menu-ponto">
-                                            <button class="item-menu" type="button">
-                                                
-                                                Concluir
-                                            </button>
-                                            <button class="item-menu excluir" type="button">
-                                                
-                                                Excluir
-                                            </button>
-                                            <button class="item-menu iniciar" type="button">
-                                                
-                                                Iniciar
-                                            </button>
-                                            <button class="item-menu principal" type="button">
-                                               
-                                                Marcar principal
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="descricao-meta">
-                                        <span class="icone-meta" style="background:#7C3AED;">
-                                            <i data-lucide="clipboard-list"></i>
-                                        </span>
-                                        <div>
-                                            <p class="titulo-linha-meta">Fazer 1 simulado por semana</p>
-                                            <p class="descrito-sub">Meta semanal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="data-meta"></div>
-                                </td>
-                                <td><span class="status-badge status-naoiniciada">Não iniciada</span></td>
-                                <td>
-                                    <div class="dropdown-ponto">
-                                        <i data-lucide="ellipsis-vertical"></i>
-
-                                        <div class="menu-ponto">
-                                             <button class="item-menu" type="button">
-                                                
-                                                Concluir
-                                            </button>
-                                            <button class="item-menu excluir" type="button">
-                                                
-                                                Excluir
-                                            </button>
-                                            <button class="item-menu iniciar" type="button">
-                                                
-                                                Iniciar
-                                            </button>
-                                            <button class="item-menu principal" type="button">
-                                               
-                                                Marcar principal
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="descricao-meta">
-                                        <span class="icone-meta" style="background:#DC2626;">
-                                            <i data-lucide="file-check"></i>
-                                        </span>
-                                        <div>
-                                            <p class="titulo-linha-meta">Revisar conteúdos aos domingos</p>
-                                            <p class="descrito-sub">Meta semanal</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="data-meta"></div>
-                                </td>
-                                <td><span class="status-badge status-naoiniciada">Não iniciada</span></td>
-                                <td>
-                                    <div class="dropdown-ponto">
-                                        <i data-lucide="ellipsis-vertical"></i>
-
-                                        <div class="menu-ponto">
-                                            <button class="item-menu" type="button">
-                                                
-                                                Concluir
-                                            </button>
-                                            <button class="item-menu excluir" type="button">
-                                                
-                                                Excluir
-                                            </button>
-                                            <button class="item-menu iniciar" type="button">
-                                                
-                                                Iniciar
-                                            </button>
-                                            <button class="item-menu principal" type="button">
-                                               
-                                                Marcar principal
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="corpo-metas"></tbody>
                     </table>
                 </div>
 
@@ -375,32 +138,6 @@
                         <i data-lucide="plus"></i>
                         Adicionar meta
                     </button>
-
-                    <div class="painel-add-meta" id="painel-add-meta">
-                        <div class="campo-add-meta">
-                            <label for="nova-meta-titulo">Título da meta</label>
-                            <input type="text" id="nova-meta-titulo" placeholder="Ex: Ler 20 páginas por dia">
-                        </div>
-
-                        <div class="campo-add-meta">
-                            <label for="nova-meta-tipo">Tipo</label>
-                            <select id="nova-meta-tipo">
-                                <option value="Meta diária">Meta diária</option>
-                                <option value="Meta semanal" selected>Meta semanal</option>
-                                <option value="Meta mensal">Meta mensal</option>
-                            </select>
-                        </div>
-
-                        <div class="campo-add-meta">
-                            <label for="nova-meta-prazo">Prazo (opcional)</label>
-                            <input type="text" id="nova-meta-prazo" placeholder="Ex: Termina em 5 dias">
-                        </div>
-
-                        <div class="acoes-add-meta">
-                            <button type="button" class="botao-secundario-add" id="cancelar-add-meta">Cancelar</button>
-                            <button type="button" class="botao-primario-add" id="confirmar-add-meta">Adicionar</button>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Modal Nova Meta (mesmo padrão do modal de matérias) -->
@@ -416,7 +153,7 @@
                                 <h2>Criação de metas</h2>
                                 <p>Crie suas metas e acompanhe seu progresso.</p>
                             </div>
-                            <button class="fechar-btn" aria-label="Fechar">
+                            <button class="fechar-btn" aria-label="Fechar" type="button">
                                 <i data-lucide="x"></i>
                             </button>
                         </div>
@@ -426,7 +163,7 @@
                         <div class="campo">
                             <label for="meta-titulo"><i data-lucide="target"></i> Título da meta</label>
                             <div class="input-container">
-                                <input type="text" id="meta-titulo" placeholder="Ex: Ler 20 páginas por dia">
+                                <input type="text" id="meta-titulo" placeholder="Ex: Ler 20 páginas por dia" maxlength="150">
                             </div>
                         </div>
 
@@ -434,9 +171,9 @@
                             <label for="meta-tipo"><i data-lucide="list-checks"></i> Tipo</label>
                             <div class="input-container">
                                 <select id="meta-tipo">
-                                    <option value="Meta diária">Meta diária</option>
-                                    <option value="Meta semanal" selected>Meta semanal</option>
-                                    <option value="Meta mensal">Meta mensal</option>
+                                    <option value="diaria">Meta diária</option>
+                                    <option value="semanal" selected>Meta semanal</option>
+                                    <option value="mensal">Meta mensal</option>
                                 </select>
                             </div>
                         </div>
@@ -444,14 +181,14 @@
                         <div class="campo">
                             <label for="meta-prazo"><i data-lucide="calendar"></i> Prazo (opcional)</label>
                             <div class="input-container">
-                                <input type="text" id="meta-prazo" placeholder="Ex: Termina em 5 dias">
+                                <input type="date" id="meta-prazo">
                             </div>
                         </div>
 
                         <div class="linha rodape-linha"></div>
 
                         <div class="botoes-footer">
-                            <button class="criar-btn" id="modal-confirmar-meta">
+                            <button class="criar-btn" id="modal-confirmar-meta" type="button">
                                 <i data-lucide="plus-circle"></i> Criar meta
                             </button>
                         </div>

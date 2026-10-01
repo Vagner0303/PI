@@ -18,6 +18,8 @@ export class User {
     @Column({ type: 'enum', nullable: false, enum: ['admin', 'user'], default: 'user' })
     role: 'admin' | 'user'
 
+    @Column({ name: 'avatar_url', type: 'varchar', length: 255, nullable: true })
+    avatarUrl?: string | null;
     // Campos de auditoria 
     // Atualizam automaticamente nas operações (INSERT, UPDATE)
     @CreateDateColumn({ name: 'created_at' })

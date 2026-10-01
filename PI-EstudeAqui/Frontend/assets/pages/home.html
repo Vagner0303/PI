@@ -17,6 +17,10 @@
     <!-- usuario.js precisa vir ANTES do continuarEstudando.js -->
     <script src="../scripts/usuario.js" defer></script>
     <script src="../scripts/continuarEstudando.js" defer></script>
+    <!-- Preenche o card "Metas semanais" -->
+    <script src="../scripts/metasSemanais.js" defer></script>
+    <!-- Preenche o card "Materias criadas" -->
+    <script src="../scripts/materiasCriadas.js" defer></script>
 </head>
 
 <body>
@@ -120,7 +124,7 @@
                             </span>
                         </div>
 
-                        <span class="card-valor">
+                        <span class="card-valor" id="materias-criadas-valor">
                             0
                         </span>
 
@@ -147,16 +151,16 @@
                             </span>
                         </div>
 
-                        <span class="card-valor">
+                        <span class="card-valor" id="meta-semanal-valor">
                             0%
                         </span>
 
-                        <span class="card-legenda">
+                        <span class="card-legenda" id="meta-semanal-legenda">
                             Metas concluidas
                         </span>
 
                         <div class="card-barra">
-                            <div class="card-progresso" style="width: 70%"></div>
+                            <div class="card-progresso" id="meta-semanal-barra" style="width: 0%"></div>
                         </div>
 
                         <a class="cronograma-rodape" href="./metas.html">

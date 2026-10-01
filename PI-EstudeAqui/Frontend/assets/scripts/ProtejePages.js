@@ -34,6 +34,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (avatar2) {
         avatar2.textContent = gerarIniciais(data.user.name)
     }
+
+    // Foto de perfil: se o usuário tiver uma, ela substitui as iniciais
+    // (aceita avatar_url ou avatarUrl, conforme o que o backend devolver)
+    const avatarUrl = data.user.avatar_url ?? data.user.avatarUrl
+    if (avatarUrl) {
+        document.querySelectorAll('.avatar, .avatar2').forEach(el => {
+            el.style.backgroundImage = `url("${baseApi}${avatarUrl}")`
+            el.textContent = ''
+        })
+    }
 })
 
 function capitalizarNome(nome) {
