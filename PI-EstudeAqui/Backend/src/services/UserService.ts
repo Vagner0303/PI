@@ -4,10 +4,43 @@ import { UserMapper } from "../mappers/UserMapper";
 import { BadRequestError, ConflictError, NotFoundError } from "../errors";
 import { UpdateUserDTO } from "../dtos/UpdateUserDTO";
 import { hashPassword, comparePassword } from "../utils/passwordUtil";
+import fs from 'fs';
+import path from 'path';
+
 
 export class UserService {
 
     private readonly repo = AppDataSource.getRepository(User)
+
+    // dentro da classe UserService:
+async atualizarAvatar(userId: number, filename: string): Promise<string> {
+    const repo = AppDataSource.getRepository(User);
+    const user = await repo.findOneBy({ id: userId });
+    if (!user) throw new Error('Usuário não encontrado.');
+
+    const antiga = user.avatarUrl;
+    user.avatarUrl = `/uploads/avatars/${filename}`;
+    await repo.save(user);
+
+    if (antiga) {
+        fs.unlink(path.resolve(__dirname, '..', '..', antiga.replace(/^\//, '')), () => {});
+    }
+    return user.avatarUrl;
+}
+
+async removerAvatar(userId: number): Promise<void> {
+    const repo = AppDataSource.getRepository(User);
+    const user = await repo.findOneBy({ id: userId });
+    if (!user) throw new Error('Usuário não encontrado.');
+
+    const antiga = user.avatarUrl;
+    user.avatarUrl = null;
+    await repo.save(user);
+
+    if (antiga) {
+        fs.unlink(path.resolve(__dirname, '..', '..', antiga.replace(/^\//, '')), () => {});
+    }
+}
 
     async findAll(): Promise<Array<Partial<User>>> {
         const users = await this.repo.find()
@@ -99,3 +132,4 @@ export class UserService {
     }
 
 }
+
