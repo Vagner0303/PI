@@ -14,6 +14,16 @@ export class TarefaController {
     }
   }
 
+  static async buscar(req: Request, res: Response) {
+    try {
+      const usuarioId = (req as any).user.id;
+      const id = Number(req.params.id);
+      res.json(await service.buscar(id, usuarioId));
+    } catch (err: any) {
+      res.status(404).json({ message: err.message });
+    }
+  }
+
   static async criar(req: Request, res: Response) {
     try {
       const usuarioId = (req as any).user.id;

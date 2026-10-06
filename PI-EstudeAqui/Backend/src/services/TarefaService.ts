@@ -12,6 +12,12 @@ export class TarefaService {
     });
   }
 
+  async buscar(id: number, usuarioId: number) {
+    const tarefa = await this.repo.findOneBy({ id, usuarioId });
+    if (!tarefa) throw new Error("Tarefa não encontrada.");
+    return tarefa;
+  }
+
   async criar(materiaId: number, usuarioId: number, dto: CreateTarefaDTO) {
     const titulo = dto.titulo?.trim();
     if (!titulo) throw new Error("Informe o nome da tarefa.");

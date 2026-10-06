@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { Application } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -12,6 +13,7 @@ import linkRoutes from './routes/linkRoutes'
 import { desempenhoService } from './controllers/DesempenhoController'
 import anotacaoRoutes from './routes/anotacaoRoutes'
 import tarefaRoutes from "./routes/tarefaRoutes";
+import atividadeRoutes from './routes/atividadeRoutes'
 import metaRoutes from './routes/metaRoutes'
 
 const app: Application = express()
@@ -42,6 +44,7 @@ app.use(desempenhoRoutes)
 app.use(linkRoutes)
 app.use(anotacaoRoutes)
 app.use(tarefaRoutes)
+app.use(atividadeRoutes)
 app.use(metaRoutes)
 
 // Tratamento de erros (sempre por último)
