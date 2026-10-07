@@ -172,7 +172,7 @@ function renderizarTarefas(tarefas) {
         acoes.className = "tarefa-acoes";
 
         const entrar = document.createElement("a");
-        entrar.href = "#";
+        entrar.href = `./tarefa.html?tarefaId=${tarefa.id}&materiaId=${materiaId}`;
         entrar.className = "btn-entrar";
         entrar.textContent = "Entrar";
 

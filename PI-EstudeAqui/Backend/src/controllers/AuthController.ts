@@ -28,7 +28,7 @@ export class AuthController {
             httpOnly: true,
             secure: false,
             sameSite: 'lax',
-            maxAge: 1000 * 60 * 60
+            maxAge: 1000 * 60 * 60 * 24 * 10 // 10 dias
         })
 
         return res.status(200).json({
