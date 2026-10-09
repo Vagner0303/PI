@@ -23,7 +23,7 @@ Criar uma solução centralizada onde o estudante possa gerenciar toda sua rotin
 
 ## 🛠️ Solução
 O sistema permitirá que o usuário:
-- Cadastre matérias  
+- Cadastre matérias
 - Adicione tarefas e provas  
 - Marque atividades como concluídas  
 - Acompanhe seu progresso de forma visual
@@ -53,12 +53,11 @@ Os dados dos usuários serão protegidos, garantindo privacidade e confiabilidad
 ---
 
 ## ✨ Diferenciais
-- Notificações inteligentes  
+- Gerar atividades e corrigi-las
 - Modo escuro  
-- Ranking de produtividade  
 - Barra de progresso por matéria  
-- Metas semanais    
-- Histórico de desempenho  
+- Metas  
+- Desempenho  do usuário
 
 ---
 
@@ -89,7 +88,7 @@ Diferente de ferramentas complexas, ele será:
 ## Links do projeto
 A apresentação do projeto **EstudeAqui** no Canva:
 
- https://www.canva.com
+https://canva.link/nlb5hi3empxpgqd
 
  Modelo visual do projeto no Figma:
 
