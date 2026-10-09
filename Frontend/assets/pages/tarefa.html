@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeAqui - Tarefa</title>
+
+    <link rel="shortcut icon" href="../img/logo_16x16.png" type="image/x-icon">
+    <script src="../scripts/tema.js"></script>
+    <link rel="stylesheet" href="../styles/EnterMate.css">
+    <link rel="stylesheet" href="../styles/materia.css">
+    <!-- CSS novo, só desta tela: carregue depois do materia.css -->
+    <link rel="stylesheet" href="../styles/tarefa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../scripts/ProtejePages.js"></script>
+</head>
+<body>
+
+    <div class="pagina">
+
+        <header class="cabecalho">
+            <div class="dentro-cabecalho">
+                <div class="acoes">
+                    <button id="alterartema" class="botao-icone" aria-label="Tema" type="button">
+                        <i data-lucide="moon" style="width:18px; height:18px; stroke-width:1.75;"></i>
+                    </button>
+
+                    <a href="./config.html" class="botao-icone botao-perfil" aria-label="Perfil">
+                        <i data-lucide="user" style="width:16px; height:16px; stroke-width:2;"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="corpo">
+
+            <aside class="barra-lateral">
+                <nav class="dentro-lateral">
+                    <a href="./home.html" class="opcao">
+                        <i data-lucide="layout-dashboard"></i>
+                        Início
+                    </a>
+
+                    <a href="./materias.html" class="opcao ativo">
+                        <i data-lucide="book-marked"></i>
+                        Matérias
+                    </a>
+
+                    <a href="./cronograma.html" class="opcao">
+                        <i data-lucide="calendar-range"></i>
+                        Cronograma
+                    </a>
+
+                    <a href="./metas.html" class="opcao">
+                        <i data-lucide="goal"></i>
+                        Metas
+                    </a>
+
+                    <a href="./desempenho.html" class="opcao">
+                        <i data-lucide="chart-spline"></i>
+                        Desempenho
+                    </a>
+
+                    <a href="./config.html" class="opcao">
+                        <i data-lucide="settings"></i>
+                        Configurações
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="conteudo">
+
+                <!-- Breadcrumb: Matérias > Nome da matéria > Nome da tarefa -->
+                <nav class="navegacao" aria-label="Você está em">
+                    <a href="./materias.html">Matérias</a>
+                    <i data-lucide="chevron-right"></i>
+                    <a href="#" id="link-materia">Matéria</a>
+                    <i data-lucide="chevron-right"></i>
+                    <span id="tarefa-breadcrumb" aria-current="page">Carregando...</span>
+                </nav>
+
+                <!-- Topo da tarefa -->
+                <section class="materia-topo">
+                    <div class="materia-icone">
+                        <i data-lucide="clipboard-list"></i>
+                    </div>
+                    <div>
+                        <h1 id="tarefa-nome">Carregando...</h1>
+                        <p class="conteudo-sub" id="tarefa-subtitulo"></p>
+                    </div>
+                </section>
+
+                <!-- Progresso -->
+                <section class="caixa caixa-conteudo progresso" id="progresso" hidden>
+                    <div class="progresso-textos">
+                        <strong id="progresso-resumo">0 de 0 respondidas</strong>
+                        <span class="conteudo-sub" id="progresso-acertos">0 acertos</span>
+                    </div>
+                    <div class="progresso-barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progresso-barra">
+                        <div class="progresso-preenchido" id="progresso-preenchido"></div>
+                    </div>
+                </section>
+
+                <!-- Filtros + gerar -->
+                <div class="barra-acoes" id="barra-filtros" hidden>
+                    <div class="filtros">
+                        <button type="button" class="filtro ativo" data-filtro="todas">Todas (0)</button>
+                        <button type="button" class="filtro" data-filtro="pendente">Pendentes (0)</button>
+                        <button type="button" class="filtro" data-filtro="correta">Acertos (0)</button>
+                        <button type="button" class="filtro" data-filtro="parcial">Parciais (0)</button>
+                        <button type="button" class="filtro" data-filtro="incorreta">Erros (0)</button>
+                    </div>
+
+                    <button type="button" class="btn-secundario" id="btn-regerar">
+                        <i data-lucide="refresh-cw"></i>
+                        Gerar novas atividades
+                    </button>
+                </div>
+
+                <!-- Estado vazio / carregando / erro geral -->
+                <section class="caixa estado" id="estado">
+                    <p class="vazio" id="estado-texto">Carregando atividades...</p>
+                    <button type="button" class="add-materia" id="btn-gerar" hidden>
+                        <i data-lucide="sparkles"></i>
+                        Gerar 10 atividades
+                    </button>
+                    <p class="erro" id="estado-erro" hidden></p>
+                </section>
+
+                <!-- Atividades (desenhadas pelo Tarefa.js) -->
+                <section class="atividades" id="lista-atividades"></section>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="../scripts/tempoEstudo.js"></script>
+    <script src="../scripts/Tarefa.js"></script>
+</body>
+</html>

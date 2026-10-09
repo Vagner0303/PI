@@ -1,0 +1,283 @@
+/* =========================================================
+   tarefa.css — tela da tarefa (atividades + correção)
+   Carregue DEPOIS do materia.css (reaproveita .caixa, .filtro,
+   .btn-secundario, .add-materia, .erro, .vazio e o modo .dark)
+   ========================================================= */
+
+/* ===== Progresso ===== */
+.progresso {
+    max-width: 900px;
+    margin-bottom: 20px;
+}
+
+.progresso[hidden],
+#barra-filtros[hidden],
+.estado[hidden] {
+    display: none;
+}
+
+.progresso-textos {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.progresso-textos strong {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.progresso-textos .conteudo-sub {
+    margin-top: 0;
+}
+
+.progresso-barra {
+    width: 100%;
+    height: 8px;
+    border-radius: 100px;
+    background: #EAF0FF;
+    overflow: hidden;
+}
+
+.progresso-preenchido {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #2F6BFF;
+    transition: width 0.4s ease;
+}
+
+/* ===== Barra de filtros desta tela ===== */
+#barra-filtros {
+    max-width: 900px;
+}
+
+/* ===== Estado vazio / carregando ===== */
+.estado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.estado .vazio {
+    padding: 0;
+}
+
+.estado .erro {
+    width: 100%;
+}
+
+/* ===== Lista de atividades ===== */
+.atividades {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+}
+
+.atividade {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-left-width: 4px;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.atividade:hover {
+    box-shadow: 0 4px 14px rgba(16, 26, 46, 0.08);
+}
+
+/* a cor da borda esquerda mostra o resultado */
+.atividade[data-resultado="pendente"]  { border-left-color: #d1d5db; }
+.atividade[data-resultado="correta"]   { border-left-color: #16a34a; }
+.atividade[data-resultado="parcial"]   { border-left-color: #d97706; }
+.atividade[data-resultado="incorreta"] { border-left-color: #e5484d; }
+
+.atividade-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.atividade-pergunta {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.atividade-numero {
+    margin-right: 6px;
+    color: #2F6BFF;
+}
+
+/* selo de resultado */
+.selo {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.selo.correta   { background: #e6f6ec; color: #15803d; }
+.selo.parcial   { background: #fdf1dc; color: #b45309; }
+.selo.incorreta { background: #ffeaea; color: #e5484d; }
+
+/* campo de resposta */
+.atividade textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    color: inherit;
+    background: #F7F9FC;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+}
+
+.atividade textarea:focus {
+    border-color: #2F6BFF;
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.25);
+}
+
+.atividade textarea:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.atividade-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.atividade-rodape .dica {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.atividade-botoes {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.atividade .add-materia {
+    border: none;
+    cursor: pointer;
+}
+
+.atividade .add-materia:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* feedback da correção */
+.feedback {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    border-radius: 8px;
+    background: #F7F9FC;
+    border: 1px solid #e5e7eb;
+}
+
+.feedback[hidden] {
+    display: none;
+}
+
+.atividade[data-resultado="correta"]   .feedback { background: #f0faf4; border-color: #bfe6cd; }
+.atividade[data-resultado="parcial"]   .feedback { background: #fff8ec; border-color: #f3dcae; }
+.atividade[data-resultado="incorreta"] .feedback { background: #fff3f3; border-color: #f6c9ca; }
+
+/* ===== Modo Dark ===== */
+.dark .progresso-barra {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .progresso-preenchido {
+    background: #6a8dff;
+}
+
+.dark .atividade {
+    background: #1A1A1A;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .atividade[data-resultado="pendente"]  { border-left-color: rgba(255, 255, 255, 0.2); }
+.dark .atividade[data-resultado="correta"]   { border-left-color: #4ade80; }
+.dark .atividade[data-resultado="parcial"]   { border-left-color: #fbbf24; }
+.dark .atividade[data-resultado="incorreta"] { border-left-color: #f87171; }
+
+.dark .atividade-numero {
+    color: #6a8dff;
+}
+
+.dark .selo.correta   { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+.dark .selo.parcial   { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+.dark .selo.incorreta { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+
+.dark .atividade textarea {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .atividade textarea:focus {
+    border-color: #6a8dff;
+    box-shadow: 0 0 0 3px rgba(106, 141, 255, 0.25);
+}
+
+.dark .feedback {
+    background: #202020;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .atividade[data-resultado="correta"]   .feedback { background: rgba(74, 222, 128, 0.08);  border-color: rgba(74, 222, 128, 0.25); }
+.dark .atividade[data-resultado="parcial"]   .feedback { background: rgba(251, 191, 36, 0.08);  border-color: rgba(251, 191, 36, 0.25); }
+.dark .atividade[data-resultado="incorreta"] .feedback { background: rgba(248, 113, 113, 0.08); border-color: rgba(248, 113, 113, 0.25); }
+
+/* ===== Responsivo ===== */
+@media (max-width: 600px) {
+    .atividade {
+        padding: 16px;
+    }
+
+    .atividade-topo {
+        flex-direction: column;
+    }
+
+    .atividade-botoes {
+        width: 100%;
+    }
+
+    .atividade-botoes .add-materia,
+    .atividade-botoes .btn-secundario {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .progresso-preenchido,
+    .atividade {
+        transition: none;
+    }
+}
