@@ -1,0 +1,102 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+    created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+);
+
+CREATE TABLE materias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NULL,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    professor VARCHAR(100) NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_materia_usuario
+        FOREIGN KEY (usuario_id) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE cronogramas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    materia VARCHAR(255) NOT NULL,
+    conteudo TEXT NULL,
+    data DATE NOT NULL,
+    concluido BOOLEAN NOT NULL DEFAULT false,
+    criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_cronograma_usuario
+        FOREIGN KEY (usuario_id) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE tarefas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(150) NOT NULL,
+  descricao TEXT NULL,
+  concluida TINYINT(1) NOT NULL DEFAULT 0,
+  criadaEm DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  materiaId INT NOT NULL,
+  usuarioId INT NOT NULL,
+  INDEX idx_tarefas_materia_usuario (materiaId, usuarioId),
+  CONSTRAINT fk_tarefas_materia FOREIGN KEY (materiaId) REFERENCES materias(id) ON DELETE CASCADE,
+  CONSTRAINT fk_tarefas_usuario FOREIGN KEY (usuarioId) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE anotacoes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(150) NOT NULL,
+  texto TEXT NOT NULL,
+  criadaEm DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  materiaId INT NOT NULL,
+  usuarioId INT NOT NULL,
+  INDEX idx_anotacoes_materia_usuario (materiaId, usuarioId),
+  CONSTRAINT fk_anotacoes_materia FOREIGN KEY (materiaId) REFERENCES materias(id) ON DELETE CASCADE,
+  CONSTRAINT fk_anotacoes_usuario FOREIGN KEY (usuarioId) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE links (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  url VARCHAR(2048) NOT NULL,
+  criadaEm DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  materiaId INT NOT NULL,
+  usuarioId INT NOT NULL,
+  INDEX idx_links_materia_usuario (materiaId, usuarioId),
+  CONSTRAINT fk_links_materia FOREIGN KEY (materiaId) REFERENCES materias(id) ON DELETE CASCADE,
+  CONSTRAINT fk_links_usuario FOREIGN KEY (usuarioId) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE metas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(150) NOT NULL,
+  tipo ENUM('diaria','semanal','mensal') NOT NULL DEFAULT 'semanal',
+  prazo DATE NULL,
+  status ENUM('nao_iniciada','em_andamento','concluida') NOT NULL DEFAULT 'nao_iniciada',
+  principal TINYINT(1) NOT NULL DEFAULT 0,
+  criadaEm DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  usuarioId INT NOT NULL,
+  INDEX idx_metas_usuario (usuarioId),
+  CONSTRAINT fk_metas_usuario FOREIGN KEY (usuarioId) REFERENCES users(id) ON DELETE CASCADE
+
+);
+
+CREATE TABLE desempenhos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    materia_id INT NOT NULL,
+    acertos INT NOT NULL DEFAULT 0,
+    erros INT NOT NULL DEFAULT 0,
+    minutos_estudados INT NOT NULL DEFAULT 0,
+    criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_desempenho_usuario_data (usuario_id, criado_em),
+    CONSTRAINT fk_desempenho_usuario FOREIGN KEY (usuario_id) REFERENCES users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_desempenho_materia FOREIGN KEY (materia_id) REFERENCES materias(id) ON DELETE CASCADE
+);
